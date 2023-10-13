@@ -14,5 +14,18 @@ module.exports = {
       },
     },
   },
+
+  // font-name [fontSize, lineHeight]
+    fontSize: {
+      sm: ['14px', '21px'],
+      base: ['16px',  '24px'],
+      lg: ['18px', '27px'],
+      xl: ['24px', '36px'],
+      '2xl': ['32px', '48px'],
+      '3xl': ['48px', '72px'],
+  },
+  fontFamily: {
+    'body': ["Lexend"],
+  },
   plugins: [],
 }
