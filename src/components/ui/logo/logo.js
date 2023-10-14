@@ -5,7 +5,7 @@ import "./logo.css";
 import image from "@/asserts/logo/logo.png";
 
 const Logo = () => {
-  return <img src={image.src} alt="Image" width={"80%"} height={"70%"} />;
+  return <img src={image.src} alt="Image" width={"125"} height={"50"} />;
 };
 
 export default Logo;
