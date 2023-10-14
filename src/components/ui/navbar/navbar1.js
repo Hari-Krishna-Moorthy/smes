@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import ThemeSwitcher from "@/app/ThemeSwitcher";
+import ThemeSwitcher from "src/app/ThemeSwitcher";
 import Logo from "../logo/logo";
 function navbar1() {
   const [isOpen, setIsOpen] = useState(false);
