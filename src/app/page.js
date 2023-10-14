@@ -1,10 +1,11 @@
-import Text from '@/components/ui/text/text'
-import Image from 'next/image'
+import Navbar from '@/components/ui/navbar/navbar'
 
 export default function Home() {
   return (
-    <main className="">
-      <Text />
+
+
+    <main className="light">
+      <Navbar />
     </main>
   )
 }

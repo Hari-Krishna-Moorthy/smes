@@ -1,0 +1,18 @@
+.text {
+
+    font-family: Arial;
+    font-style: normal;
+    line-height: normal;
+    font-size: 43px;
+
+    background: linear-gradient(180deg, #DCE1FF 0%, #29368C 33.33%, #5D6FE4 62.5%, rgba(41, 54, 140, 0.00) 79.69%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+img {
+    width: 45px;
+    height: 40px;
+    flex-shrink: 0;
+}
