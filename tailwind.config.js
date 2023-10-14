@@ -7,6 +7,17 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundColor: {
+        dark: '#333',  
+        light: '#fff', 
+      },
+      textColor: {
+        dark: '#fff',  
+        light: '#333', 
+      },
+      fontFamily: {
+        display: 'Lexend',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -23,9 +34,6 @@ module.exports = {
       xl: ['24px', '36px'],
       '2xl': ['32px', '48px'],
       '3xl': ['48px', '72px'],
-  },
-  fontFamily: {
-    'body': ["Lexend"],
   },
   plugins: [],
 }
