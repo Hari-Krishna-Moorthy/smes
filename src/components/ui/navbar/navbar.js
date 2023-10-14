@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-
+import ThemeSwitcher from '@/app/ThemeSwitcher'
 import Link from 'next/link'
 import Logo from '../logo/logo'
 
@@ -25,7 +25,7 @@ const Navbar = () => {
         <header  className= {` fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${!top ? ' backdrop-blur-sm shadow-lg' : ''}`}>
             <div>
                 <div className="grid grid-cols-5 gap-3 m-2">
-                    <div className="col-span-1">
+                    <div className="col-span-1 m-5 mt-1">
                         <Link href={"/"} ><Logo /></Link>
                     </div>
                     <div className="col-span-3 m-2">
@@ -54,6 +54,9 @@ const Navbar = () => {
                                 <Link className='text-lg font-normal hover:font-semibold' href={"/contact-us"}>Contact Us</Link>
                             </li>
 
+                            <li>
+                                <ThemeSwitcher />
+                            </li>
                         </ul>
                     </div>
 
