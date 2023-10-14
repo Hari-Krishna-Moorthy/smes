@@ -36,4 +36,5 @@ module.exports = {
       '3xl': ['48px', '72px'],
   },
   plugins: [],
+  darkMode: 'class',
 }
