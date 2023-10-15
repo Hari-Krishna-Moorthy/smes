@@ -52,14 +52,21 @@ function App() {
       <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
         <ChevronRightIcon className="h-6 w-6" onClick={nextSlide} />
       </div>
-      <div className="flex top-4 justify-center py-2">
+      <div className="flex top-4 justify-center py-2 gap-1">
         {slides.map((slide, slideIndex) => (
           <div
             key={slideIndex}
             onClick={() => goToSlide(slideIndex)}
             className="text-2xl cursor-pointer"
           >
-            +
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 512 512"
+              width={"0.7rem"}
+            >
+              <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" />
+            </svg>
           </div>
         ))}
       </div>
