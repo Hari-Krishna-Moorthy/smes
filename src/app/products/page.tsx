@@ -1,6 +1,9 @@
-import React from 'react'
-import ImageSlider from '../../components/ImageSlider'
+'use client'
+import axios from 'axios'
 import Image from 'next/image'
+import React, { useEffect, useState } from 'react'
+import ImageSlider from '../../components/ImageSlider'
+import Category from '../../interfaces/ProductCategory'
 
 const ProductsPromo = () => {
   return (
@@ -48,39 +51,45 @@ const Categories: React.FC<{
   )
 }
 
+const getProductCategories = async () => {
+  const { data } = await axios.get<Category[]>('/api/categories')
+  return data
+}
+
 const ProductCategories = () => {
-  const productCategories = [
-    {
-      thumbnailUrl:
-        'https://images.unsplash.com/photo-1607428262964-5646fce23b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2573&q=80',
-      name: 'Product',
-      country: 'Japanese spare parts',
-    },
-    {
-      thumbnailUrl:
-        'https://images.unsplash.com/photo-1607428262964-5646fce23b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2573&q=80',
-      name: 'Product',
-      country: 'Korean spare parts',
-    },
-    {
-      thumbnailUrl:
-        'https://images.unsplash.com/photo-1607428262964-5646fce23b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2573&q=80',
-      name: 'Product',
-      country: 'Korean spare parts',
-    },
-    {
-      thumbnailUrl:
-        'https://images.unsplash.com/photo-1607428262964-5646fce23b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2573&q=80',
-      name: 'Product',
-      country: 'Korean spare parts',
-    },
-  ]
+  const [categories, setCategories] = useState<Category[]>()
+  useEffect(() => {
+    ;(async () => setCategories(await getProductCategories()))()
+  }, [])
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="w-2/4 grid grid-cols-2 justify-center align-middle gap-3 mx-auto">
-        {productCategories.map((info) => (
-          <Categories {...info} />
-        ))}
+        {!categories
+          ? Array(4)
+              .fill(0)
+              .map(() => (
+                <div className="border shadow rounded-md px-4 py-4 h-40 w-full mx-auto">
+                  <div className="animate-pulse flex space-x-4 ">
+                    <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                    <div className="flex-1 space-y-6 py-1">
+                      <div className="h-2 bg-slate-700 rounded"></div>
+                      <div className="space-y-3">
+                        <div className="grid grid-cols-3 gap-4">
+                          <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                          <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                        </div>
+                        <div className="h-2 bg-slate-700 rounded"></div>
+                        <div className="grid grid-cols-3 gap-4">
+                          <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                          <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))
+          : categories.map((info) => <Categories {...info} />)}
       </div>
     </div>
   )
