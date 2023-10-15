@@ -10,10 +10,13 @@ module.exports = {
       backgroundColor: {
         dark: '#333',  
         light: '#fff', 
+        certi: '#DEE6FB'
       },
       textColor: {
         dark: '#fff',  
-        light: '#333', 
+        light: '#333',
+        certi: '#1C204F',
+        certidark: '#D4D7E8' 
       },
       fontFamily: {
         display: 'Lexend',
