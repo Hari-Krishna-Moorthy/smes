@@ -2,18 +2,10 @@ import React from 'react'
 
 import './logo.css'
 
-import image from '../../../assets/logo/logo.png'
+import image from '@/assets/logo/logo.png'
 
 const Logo = () => {
-  return (
-    <div className="text font-semibold m2">
-      <div className="flex items-center">
-        <p className="">SM</p>
-        <img src={image.src} alt="Image" width={'50'} height={'50%'} />
-        <p className="">S</p>
-      </div>
-    </div>
-  )
+  return <img src={image.src} alt="Image" width={'125'} height={'50'} />
 }
 
 export default Logo
