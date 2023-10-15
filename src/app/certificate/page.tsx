@@ -11,6 +11,8 @@ import Certificate1 from '../../assets/certificates/image.png'
 import Certificate2 from '../../assets/certificates/image1.png'
 import Certificate3 from '../../assets/certificates/image2.png'
 import Certificate4 from '../../assets/certificates/image3.png'
+import Certificate5 from '../../assets/certificates/image4.png'
+import Certificate6 from '../../assets/certificates/image5.png'
 
 
   export default function Certificate() {
@@ -106,7 +108,7 @@ import Certificate4 from '../../assets/certificates/image3.png'
                     className='mb-4'
                     />
                     <a>
-                      <h5 className="text-l font-semibold tracking-tight text-certi">Nippon Kaiji Kyokai Certificate</h5>
+                      <h5 className="text-l font-semibold tracking-tight text-certi">Nippon Kaiji Kyokai<br></br> Certificate</h5>
                      </a>
     
                     </div>
@@ -123,12 +125,12 @@ import Certificate4 from '../../assets/certificates/image3.png'
  
                     <div className="max-w-sm p-6 bg-certi border border-gray-200 rounded-lg shadow  text-center">
                     <Image
-                    src={Certificate1}
+                    src={Certificate5}
                     alt=""
                     className='mb-4'
                     />
                     <a>
-                      <h5 className="text-l font-semibold tracking-tight text-certi">Need a help in Claim?</h5>
+                      <h5 className="text-l font-semibold tracking-tight text-certi">Original Manufacture <br></br>Certificate</h5>
                      </a>
     
                     </div>
@@ -145,12 +147,12 @@ import Certificate4 from '../../assets/certificates/image3.png'
  
                     <div className="max-w-sm p-6 bg-certi border border-gray-200 rounded-lg shadow  text-center">
                     <Image
-                    src={Certificate1}
+                    src={Certificate6}
                     alt=""
                     className='mb-4'
                     />
                     <a>
-                      <h5 className="text-l font-semibold tracking-tight text-certi">Need a help in Claim?</h5>
+                      <h5 className="text-l font-semibold tracking-tight text-certi">Certificate of Genuine Spare <br></br> Parts</h5>
                      </a>
     
                     </div>
