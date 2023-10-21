@@ -6,6 +6,7 @@ import ImageSlider from '../../../components/ImageSlider'
 import Category from '../../../interfaces/ProductCategory'
 import Link from 'next/link'
 import { head, isEmpty } from 'lodash'
+import ProductList from '../../../components/ProductList'
 
 const ProductsPromo = () => {
   return (
@@ -104,6 +105,22 @@ const ProductCategories = ({ countryMeta }) => {
                 </div>
               ))
           : categories.map((info) => <Categories {...info} />)}
+      </div>
+      <div className="w-full">
+        {countryMeta?.code && (
+          <ProductList
+            name={'Japanese Spare parts'}
+            products={[
+              'Turbocharger service and overhaul',
+              'Turbocharger service and overhaul',
+              'Turbocharger service and overhaul',
+              'Turbocharger service and overhaul',
+              'Turbocharger service and overhaul',
+              'Turbocharger service and overhaul',
+              'Turbocharger service and overhaul',
+            ]}
+          />
+        )}
       </div>
     </div>
   )
