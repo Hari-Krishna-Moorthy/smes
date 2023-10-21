@@ -30,11 +30,7 @@ const ProductsPromo = () => {
   )
 }
 
-const Categories: React.FC<{
-  thumbnailUrl: string
-  name: string
-  country: string
-}> = ({ country, name, thumbnailUrl }) => {
+const Categories: React.FC<Category> = ({ name, thumbnailUrl, flag }) => {
   return (
     <div className="hover:scale-[101%] hover:shadow-lg shadow-sm transition-all transform-gpu ease-in-out duration-200 relative hs-[20.8125rem] ws-[27.375rem]  rounded-[0.5rem] overflow-hidden drop-shadow-md  bg-black">
       <Image
@@ -44,9 +40,16 @@ const Categories: React.FC<{
         height={1000}
         className="w-full h-full object-cover opacity-70"
       />
-      <h1 className="absolute text-xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        {name}
-      </h1>
+      <div className="absolute flex justify-center  gap-1 text-center align-baseline text-xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="w-8 rounded-full overflow-hidden align-middle justify-center">
+          <img
+            className="w-full object-cover h-full"
+            src={flag.svg}
+            alt={flag.alt}
+          />
+        </div>
+        <h1 className="whitespace-nowrap">{name}</h1>
+      </div>
     </div>
   )
 }
