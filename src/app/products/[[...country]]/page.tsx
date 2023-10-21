@@ -152,7 +152,7 @@ export default function Products({
   }
   return (
     <div className="h-full bg-white text-black font-lexEnd container mx-auto px-4 py-4">
-      {!countryMeta && <ProductsPromo />}
+      {!countryMeta.code && <ProductsPromo />}
       <ProductCategories countryMeta={countryMeta} />
     </div>
   )
