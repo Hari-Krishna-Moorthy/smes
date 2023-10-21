@@ -2,8 +2,11 @@
 import axios from 'axios'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import ImageSlider from '../../components/ImageSlider'
-import Category from '../../interfaces/ProductCategory'
+import ImageSlider from '../../../components/ImageSlider'
+import Category from '../../../interfaces/ProductCategory'
+import Link from 'next/link'
+import { head, isEmpty } from 'lodash'
+import ProductList from '../../../components/ProductList'
 
 const ProductsPromo = () => {
   return (
@@ -30,23 +33,26 @@ const ProductsPromo = () => {
   )
 }
 
-const Categories: React.FC<{
-  thumbnailUrl: string
-  name: string
-  country: string
-}> = ({ country, name, thumbnailUrl }) => {
+const Categories: React.FC<Category> = ({ name, thumbnailUrl, flag, code }) => {
   return (
-    <div className="hover:scale-[101%] hover:shadow-lg shadow-sm transition-all transform-gpu ease-in-out duration-200 relative hs-[20.8125rem] ws-[27.375rem]  rounded-[0.5rem] overflow-hidden drop-shadow-md  bg-black">
-      <Image
+    <div className="h-full w-full hover:scale-[101%] hover:shadow-lg shadow-sm transition-all transform-gpu ease-in-out duration-200 relative hs-[20.8125rem] ws-[27.375rem]  rounded-[0.5rem] overflow-hidden drop-shadow-md  bg-black">
+      <img
         src={thumbnailUrl}
         alt={name}
-        width={250}
-        height={1000}
         className="w-full h-full object-cover opacity-70"
       />
-      <h1 className="absolute text-xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        {name}
-      </h1>
+      <Link href={`/products/${code}`}>
+        <div className="absolute flex justify-center  gap-1 text-center align-baseline text-xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="w-8 rounded-full overflow-hidden align-middle justify-center">
+            <img
+              className="w-full object-cover h-full"
+              src={flag.svg}
+              alt={flag.alt}
+            />
+          </div>
+          <h1 className="whitespace-nowrap">{name}</h1>
+        </div>
+      </Link>
     </div>
   )
 }
@@ -56,15 +62,24 @@ const getProductCategories = async () => {
   return data
 }
 
-const ProductCategories = () => {
+const ProductCategories = ({ countryMeta }) => {
   const [categories, setCategories] = useState<Category[]>()
+
   useEffect(() => {
-    ;(async () => setCategories(await getProductCategories()))()
+    if (!categories) {
+      ;(async () => setCategories(await getProductCategories()))()
+    }
   }, [])
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="w-2/4 grid grid-cols-2 justify-center align-middle gap-3 mx-auto">
+      <div
+        className={`${
+          countryMeta?.code
+            ? 'flex  gap-3 h-[9.75rem]'
+            : 'w-2/4 grid grid-cols-2 justify-center align-middle gap-3'
+        } mx-auto`}
+      >
         {!categories
           ? Array(4)
               .fill(0)
@@ -91,15 +106,54 @@ const ProductCategories = () => {
               ))
           : categories.map((info) => <Categories {...info} />)}
       </div>
+      <div className="w-full">
+        {countryMeta?.code && (
+          <ProductList
+            name={'Japanese Spare parts'}
+            products={[
+              'Turbocharger service and overhaul',
+              'Turbocharger service and overhaul',
+              'Turbocharger service and overhaul',
+              'Turbocharger service and overhaul',
+              'Turbocharger service and overhaul',
+              'Turbocharger service and overhaul',
+              'Turbocharger service and overhaul',
+            ]}
+          />
+        )}
+      </div>
     </div>
   )
 }
 
-export default function Products() {
+export default function Products({
+  params,
+}: {
+  params: { country: string[] | undefined }
+}) {
+  // const [countryMeta, setCountryMeta] = useState<
+  //   | {
+  //       code: string
+  //     }
+  //   | undefined
+  // >()
+
+  // useEffect(() => {
+  //   if (!isEmpty(params.country))
+  //     setCountryMeta({
+  //       code: head(params.country) as string,
+  //     })
+
+  //   return () => setCountryMeta(undefined)
+  // }, [])
+
+  const countryMeta = {
+    code: head(params.country) as string,
+  }
   return (
     <div className="h-full bg-white text-black font-lexEnd container mx-auto px-4 py-4">
-      <ProductsPromo />
-      <ProductCategories />
+      {!countryMeta.code && <ProductsPromo />}
+      <ProductCategories countryMeta={countryMeta} />
     </div>
   )
 }
