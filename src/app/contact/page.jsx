@@ -187,9 +187,8 @@ const Contact = () => {
                 <div className="text-3xl text-center font-bold"><h1>Contact Us</h1></div>
             </div>
 
-            <div id="map" className="mx-10 flex flex-row"  >
-
-                <div className="basis-4/6" style={{ maxWidth: "100%", maxHeight: "675px" }}>
+            <div id="map" className="mx-10 flex flex-col md:flex-row">
+            <div className="w-full md:w-4/6" style={{ maxWidth: "100%", maxHeight: "675px" }}>
                     <MapContainer zoom={zoomLevel} center={CENTRAL_LOCATION}  className="grayscale-map">
                         <TileLayer
                             url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
@@ -208,8 +207,7 @@ const Contact = () => {
                             ))}
                     </MapContainer>
                 </div>
-                <div className="basis-2/6 text-black" style={{ backgroundColor: "#DEE6FB" }} >
-
+                <div className="w-full md:w-2/6 text-black" style={{ backgroundColor: "#DEE6FB", minHeight:"675px" }}>
                     {/* Office Name with google map link */}
 
                     <div className="m-4 grid grid-cols-4 gap-4" style={{ backgroundColor: "#DEE6FB" }}>
@@ -226,7 +224,7 @@ const Contact = () => {
                     </div>
 
                     {/* Office Address */}
-                    <div className="m-10 px-10 grid grid-row-4 " >
+                    <div className="m-8 px-8 grid grid-row-4 " >
                         <div >
                             <p className="text-lg font-semibold"> Address: </p>
                         </div>
@@ -242,7 +240,7 @@ const Contact = () => {
                     </div>
 
                     {/* Office Phone */}
-                    <div className="m-10 px-10 grid grid-row-4 " >
+                    <div className="m-8 px-8 grid grid-row-4 " >
                         <div >
                             <p className="text-lg font-semibold"> Phone: </p>
                         </div>
@@ -254,7 +252,7 @@ const Contact = () => {
                     </div>
 
                     {/* Office Fax */}
-                    <div className="m-10 px-10 grid grid-row-4 " >
+                    <div className="m-8 px-8 grid grid-row-4 " >
                         <div >
                             <p className="text-lg font-semibold"> Fax: </p>
                         </div>
@@ -267,7 +265,7 @@ const Contact = () => {
 
 
                     {/* Office Mail */}
-                    <div className="m-10 px-10 grid grid-row-4 " >
+                    <div className="m-8 px-8 grid grid-row-4 " >
                         <div >
                             <p className="text-lg font-semibold"> Mail: </p>
                         </div>
