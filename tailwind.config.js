@@ -14,6 +14,8 @@ module.exports = {
       textColor: {
         dark: '#fff',  
         light: '#333', 
+        light1: '#1C204F',
+        dark1: '#D4D7E8' 
       },
       fontFamily: {
         display: 'Lexend',
