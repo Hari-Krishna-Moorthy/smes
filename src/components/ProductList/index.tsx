@@ -37,8 +37,8 @@ const ProductList: React.FC<{
         </div>
       </div>
       <div className="py-8 grid grid-cols-3 gap-5">
-        {products.map((product) => (
-          <Product name={product} />
+        {products.map((product, index) => (
+          <Product key={index} name={product} />
         ))}
       </div>
     </div>

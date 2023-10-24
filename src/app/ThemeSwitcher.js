@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useTheme } from "next-themes";
 
 const ThemeSwitcher = () => {
@@ -15,7 +15,7 @@ const ThemeSwitcher = () => {
       setTheme("dark");
     }
     console.log('theme set  --->  :',theme);
-  }, []);
+  }, [theme, setTheme]);
   
   return (
     <div>

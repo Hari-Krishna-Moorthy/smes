@@ -29,7 +29,7 @@ const Navbar = () => {
         <div className="grid grid-cols-5 gap-3 m-2">
           <div className="col-span-1">
             <Link href={'/'}>
-              <Logo />
+              <Logo color={"default"}  />
             </Link>
           </div>
           <div className="col-span-3 m-2">

@@ -1,10 +1,11 @@
-"use client";
+"use client"
+
 import React, { useState, useEffect } from "react";
 import ThemeSwitcher from "src/app/ThemeSwitcher";
 import Logo from "../logo/logo";
 import Link from 'next/link'
 
-function navbar1({ activePage }) {
+function Navbar1({ activePage }) {
   const [isOpen, setIsOpen] = useState(false);
   const [top, setTop] = useState(true)
 
@@ -64,4 +65,4 @@ function navbar1({ activePage }) {
     </nav>
   );
 }
-export default navbar1;
+export default Navbar1;
