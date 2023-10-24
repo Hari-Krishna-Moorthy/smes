@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import "./logo.css";
+import './logo.css'
 
 import image from "src/assets/logo/logo.png";
 
