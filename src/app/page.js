@@ -1,9 +1,14 @@
 import Navbar from "src/components/ui/navbar/navbar1";
+import Home from "./home";
 
-export default function Home() {
+export default function Site() {
   return (
     <main className="light">
-      <Navbar />
+      <div className="h-20">
+        {/* Navbar  */}
+          <Navbar activePage={"Home"} />
+      </div>
+      <Home />
     </main>
   );
 }
