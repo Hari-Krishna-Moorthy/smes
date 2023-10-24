@@ -1,3 +1,4 @@
+import Footer from "src/components/ui/footer/footer";
 import Navbar from "src/components/ui/navbar/navbar1";
 import Home from "./home";
 
@@ -9,6 +10,9 @@ export default function Site() {
           <Navbar activePage={"Home"} />
       </div>
       <Home />
+
+      
+      <Footer />
     </main>
   );
 }
