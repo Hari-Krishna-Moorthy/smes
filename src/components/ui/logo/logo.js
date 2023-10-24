@@ -3,8 +3,8 @@ import React from 'react'
 
 import './logo.css'
 
-import defaultLogo from "@/assets/logo/logo.png";
-import whiteLogo from "@/assets/logo/logo-white.png";
+import defaultLogo from "../../../assets/logo/logo.png"
+import whiteLogo from "../../../assets/logo/logo-white.png"
 
 
 const Logo = ({ color }) => {
