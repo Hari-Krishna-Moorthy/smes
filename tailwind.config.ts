@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from 'tailwindcss'
+
+export default {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -8,15 +9,16 @@ module.exports = {
   theme: {
     extend: {
       backgroundColor: {
-        dark: '#333',  
-        light: '#fff', 
+        dark: '#333',
+        light: '#fff',
       },
       textColor: {
-        dark: '#fff',  
-        light: '#333', 
+        dark: '#fff',
+        light: '#333',
       },
       fontFamily: {
-        display: 'Lexend',
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        lexEnd: ['Lexend', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -27,14 +29,14 @@ module.exports = {
   },
 
   // font-name [fontSize, lineHeight]
-    fontSize: {
-      sm: ['14px', '21px'],
-      base: ['16px',  '24px'],
-      lg: ['18px', '27px'],
-      xl: ['24px', '36px'],
-      '2xl': ['32px', '48px'],
-      '3xl': ['48px', '72px'],
+  fontSize: {
+    sm: ['14px', '21px'],
+    base: ['16px', '24px'],
+    lg: ['18px', '27px'],
+    xl: ['24px', '36px'],
+    '2xl': ['32px', '48px'],
+    '3xl': ['48px', '72px'],
   },
   plugins: [],
   darkMode: 'class',
-}
+} as Config

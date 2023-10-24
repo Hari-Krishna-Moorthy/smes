@@ -1,8 +1,7 @@
 "use client"
-
 import React, { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, Tooltip } from 'react-leaflet';
-import "./contact.css"
+import "./contact.css";
 import Navbar from "@/components/ui/navbar/navbar1";
 import L from 'leaflet';
 
