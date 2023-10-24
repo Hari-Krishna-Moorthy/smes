@@ -1,8 +1,9 @@
 "use client"
 import React, { useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup, Tooltip } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Tooltip } from 'react-leaflet';
 import "./contact.css";
-import Navbar from "@/components/ui/navbar/navbar1";
+import Navbar from "../../components/ui/navbar/navbar1";
+import Footer from "../../components/ui/footer/footer";
 import L from 'leaflet';
 
 
@@ -21,7 +22,7 @@ const Contact = () => {
         });
     };
 
-    let CENTRAL_LOCATION = [32.4652518,28.8260857];
+    let CENTRAL_LOCATION = [32.4652518, 28.8260857];
     const locations = [
         {
             lat: 1.316,
@@ -45,7 +46,7 @@ const Contact = () => {
                     "sales@smesgroup.com.sg",
                     "singaporemarine@gmail.com"
                 ],
-                gmap:"http://www.google.com/maps/dir//1.316, 103.698"
+                gmap: "http://www.google.com/maps/dir//1.316, 103.698"
             }
         },
         {
@@ -69,7 +70,7 @@ const Contact = () => {
                 mails: [
                     "srilanka@smesworldwide.com",
                 ],
-                gmap:"http://www.google.com/maps/dir//6.872,80.0003"
+                gmap: "http://www.google.com/maps/dir//6.872,80.0003"
             }
         },
         {
@@ -93,7 +94,7 @@ const Contact = () => {
                 mails: [
                     "india@smesworldwide.com",
                 ],
-                gmap:"http://www.google.com/maps/dir//13.0131785,77.6188653"
+                gmap: "http://www.google.com/maps/dir//13.0131785,77.6188653"
 
             }
         },
@@ -118,7 +119,7 @@ const Contact = () => {
                 mails: [
                     "uae@smesworldwide.com",
                 ],
-                gmap:"http://www.google.com/maps/dir//25.2048493,55.2707828"
+                gmap: "http://www.google.com/maps/dir//25.2048493,55.2707828"
 
             }
         },
@@ -143,7 +144,7 @@ const Contact = () => {
                 mails: [
                     "uae@smesworldwide.com",
                 ],
-                gmap:"http://www.google.com/maps/dir//35.8557741,140.4071997"
+                gmap: "http://www.google.com/maps/dir//35.8557741,140.4071997"
             }
         },
         {
@@ -167,7 +168,7 @@ const Contact = () => {
                 mails: [
                     "usa@smesworldwide.com",
                 ],
-                gmap:"http://www.google.com/maps/dir//30.308554599999997,-81.5274832"
+                gmap: "http://www.google.com/maps/dir//30.308554599999997,-81.5274832"
             }
         },
     ];
@@ -179,16 +180,17 @@ const Contact = () => {
     }
 
     return (
-        <>
-            <Navbar />
-
+        <div>
+            <div className="h-20">
+                <Navbar activePage={"Contact Us"} />
+            </div>
             <div className="p-2 m-4">
                 <div className="text-3xl text-center font-bold"><h1>Contact Us</h1></div>
             </div>
 
             <div id="map" className="mx-10 flex flex-col md:flex-row">
-            <div className="w-full md:w-4/6" style={{ maxWidth: "100%", maxHeight: "675px" }}>
-                    <MapContainer zoom={zoomLevel} center={CENTRAL_LOCATION}  className="grayscale-map">
+                <div className="w-full md:w-4/6" style={{ maxWidth: "100%", maxHeight: "675px" }}>
+                    <MapContainer zoom={zoomLevel} center={CENTRAL_LOCATION} className="grayscale-map">
                         <TileLayer
                             url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
                         />
@@ -206,7 +208,7 @@ const Contact = () => {
                             ))}
                     </MapContainer>
                 </div>
-                <div className="w-full md:w-2/6 text-black" style={{ backgroundColor: "#DEE6FB", minHeight:"675px" }}>
+                <div className="w-full md:w-2/6 text-black" style={{ backgroundColor: "#DEE6FB", minHeight: "675px" }}>
                     {/* Office Name with google map link */}
 
                     <div className="m-4 grid grid-cols-4 gap-4" style={{ backgroundColor: "#DEE6FB" }}>
@@ -215,9 +217,9 @@ const Contact = () => {
                         </div>
                         <div>
                             <a target="_blank" href={SidebarContent?.address?.gmap}>
-                            <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M14.9983 16.6667C14.5563 16.6667 14.1324 16.8423 13.8198 17.1549C13.5073 17.4674 13.3317 17.8914 13.3317 18.3334V25.0001H16.665V20.0001H21.665V24.1667L27.4983 18.3334L21.665 12.5001V16.6667H14.9983ZM21.1767 2.32172L37.6767 18.8217C37.9891 19.1343 38.1647 19.5581 38.1647 20.0001C38.1647 20.442 37.9891 20.8658 37.6767 21.1784L21.1767 37.6784C20.8641 37.9908 20.4403 38.1664 19.9983 38.1664C19.5564 38.1664 19.1326 37.9908 18.82 37.6784L2.32001 21.1784C2.00756 20.8658 1.83203 20.442 1.83203 20.0001C1.83203 19.5581 2.00756 19.1343 2.32001 18.8217L18.82 2.32172C19.1326 2.00927 19.5564 1.83374 19.9983 1.83374C20.4403 1.83374 20.8641 2.00927 21.1767 2.32172Z" fill="#1C204F" />
-                            </svg>
+                                <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14.9983 16.6667C14.5563 16.6667 14.1324 16.8423 13.8198 17.1549C13.5073 17.4674 13.3317 17.8914 13.3317 18.3334V25.0001H16.665V20.0001H21.665V24.1667L27.4983 18.3334L21.665 12.5001V16.6667H14.9983ZM21.1767 2.32172L37.6767 18.8217C37.9891 19.1343 38.1647 19.5581 38.1647 20.0001C38.1647 20.442 37.9891 20.8658 37.6767 21.1784L21.1767 37.6784C20.8641 37.9908 20.4403 38.1664 19.9983 38.1664C19.5564 38.1664 19.1326 37.9908 18.82 37.6784L2.32001 21.1784C2.00756 20.8658 1.83203 20.442 1.83203 20.0001C1.83203 19.5581 2.00756 19.1343 2.32001 18.8217L18.82 2.32172C19.1326 2.00927 19.5564 1.83374 19.9983 1.83374C20.4403 1.83374 20.8641 2.00927 21.1767 2.32172Z" fill="#1C204F" />
+                                </svg>
                             </a>
                         </div>
                     </div>
@@ -277,8 +279,8 @@ const Contact = () => {
 
                 </div>
             </div>
-            <footer>Add footer here.......</footer>
-        </>
+            <Footer />
+        </div>
 
 
     );

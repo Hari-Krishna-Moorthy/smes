@@ -19,7 +19,9 @@ export default function Certificate() {
   return (
 
     <div className="relative">
-      <Navbar />
+      <div className="h-20">
+        <Navbar activePage={"Certificate"} />
+      </div>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <h2 className="mt-2 text-3xl text-certi  text-center font-bold dark:text-certidark">Certificates</h2>
         <div className="max-w-sm md:max-w-4xl mx-auto grid gap-9 grid-cols-1 md:grid-cols-3">
@@ -109,8 +111,8 @@ export default function Certificate() {
           </div>
         </div>
       </div>
-<Footer />
-      
+      <Footer />
+
     </div>
 
 
