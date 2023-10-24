@@ -1,9 +1,10 @@
 "use client"
 
-import HomeCarosal from '@/components/ui/carousel/imageCarousel';
+import HomeCarosal from '@/components/ui/home/imageCarousel';
 import React from 'react';
 
 import image1 from "@/assets/home/carosals/bulker.jpg"
+import Services from '@/components/ui/home/services';
 
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
     return (
         <div>
             <HomeCarosal  images={CarosalImages} captions={captions} />
+            <Services />
         </div>
     );
 }
