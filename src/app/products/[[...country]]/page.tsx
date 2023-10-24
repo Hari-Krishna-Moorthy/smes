@@ -76,8 +76,8 @@ const ProductCategories = ({ countryMeta }) => {
     <div className="container mx-auto px-4 py-8">
       <div
         className={`${countryMeta?.code
-            ? 'flex  gap-3 h-[9.75rem]'
-            : 'w-2/4 grid grid-cols-2 justify-center align-middle gap-3'
+          ? 'flex  gap-3 h-[9.75rem]'
+          : 'w-2/4 grid grid-cols-2 justify-center align-middle gap-3'
           } mx-auto`}
       >
         {!categories
@@ -152,7 +152,9 @@ export default function Products({
   }
   return (
     <div>
-      <Navbar />
+      <div className="h-20">
+        <Navbar activePage={"Products"} />
+      </div>
       <div className="h-full bg-white text-black font-lexEnd container mx-auto px-4 py-4">
         {!countryMeta.code && <ProductsPromo />}
         <ProductCategories countryMeta={countryMeta} />
