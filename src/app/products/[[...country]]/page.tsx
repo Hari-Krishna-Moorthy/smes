@@ -41,6 +41,8 @@ const Categories: React.FC<Category> = ({ name, thumbnailUrl, flag, code }) => {
       <Image
         src={thumbnailUrl}
         alt={name}
+        width={1000}
+        height={1000}
         className="w-full h-full object-cover opacity-70"
       />
       <Link href={`/products/${code}`}>
@@ -49,6 +51,8 @@ const Categories: React.FC<Category> = ({ name, thumbnailUrl, flag, code }) => {
             <Image 
             
             className="w-full object-cover h-full"
+            width={1000}
+            height={1000}
               src={flag.svg}
               alt={flag.alt}
             />

@@ -22,7 +22,7 @@ function Navbar1({ activePage }) {
   return (
     <nav className={`fixed w-full  z-20 md:bg-opacity-90 transition duration-300 ease-in-out ${!top ? ' border-black border-b-1 backdrop-blur-sm ' : ''} flex items-center justify-between flex-wrap p-6`}>
       <div className="flex items-center flex-shrink-0 text-white mr-72">
-        <Logo />
+        <Logo color={"default"} />
       </div>
       <div className="block lg:hidden">
         <button
@@ -50,12 +50,12 @@ function Navbar1({ activePage }) {
           }`}
       >
         <div className="text-sm lg:flex-grow">
-          <Link className={`text-lg font-semibold hover:font-bold block mt-4 mx-4 lg:inline-block lg:mt-0  mr-4 ${activePage == 'Home' ? 'border-b-4 rounded border-blue-800' : ''} `} href={"/"}>Home</Link>
-          <Link className={`text-lg font-semibold hover:font-bold block mt-4 mx-4 lg:inline-block lg:mt-0  mr-4 ${activePage == 'About Us' ? 'border-b-4 rounded border-blue-800' : ''} `} href={"/#aboutus"}>About us</Link>
-          <Link className={`text-lg font-semibold hover:font-bold block mt-4 mx-4 lg:inline-block lg:mt-0  mr-4 ${activePage == 'Services' ? 'border-b-4 rounded border-blue-800' : ''} `} href={"/services"}>Services</Link>
-          <Link className={`text-lg font-semibold hover:font-bold block mt-4 mx-4 lg:inline-block lg:mt-0  mr-4 ${activePage == 'Products' ? 'border-b-4 rounded border-blue-800' : ''} `} href={"/products"}>Products</Link>
-          <Link className={`text-lg font-semibold hover:font-bold block mt-4 mx-4 lg:inline-block lg:mt-0  mr-4 ${activePage == 'Certificate' ? 'border-b-4 rounded border-blue-800' : ''} `} href={"/certificate"}>Certificate</Link>
-          <Link className={`text-lg font-semibold hover:font-bold block mt-4 mx-4 lg:inline-block lg:mt-0  mr-4 ${activePage == 'Contact Us' ? 'border-b-4 rounded border-blue-800' : ''} `} href={"/contact"}>Contact Us</Link>
+          <Link className={`text-lg font-semibold hover:font-bold block mt-4 mx-4 lg:inline-block lg:mt-0  mr-4 ${activePage === 'Home' ? 'border-b-4 rounded border-blue-800' : ''} `} href={"/"}>Home</Link>
+          <Link className={`text-lg font-semibold hover:font-bold block mt-4 mx-4 lg:inline-block lg:mt-0  mr-4 ${activePage === 'About Us' ? 'border-b-4 rounded border-blue-800' : ''} `} href={"/#aboutus"}>About us</Link>
+          <Link className={`text-lg font-semibold hover:font-bold block mt-4 mx-4 lg:inline-block lg:mt-0  mr-4 ${activePage === 'Services' ? 'border-b-4 rounded border-blue-800' : ''} `} href={"/services"}>Services</Link>
+          <Link className={`text-lg font-semibold hover:font-bold block mt-4 mx-4 lg:inline-block lg:mt-0  mr-4 ${activePage === 'Products' ? 'border-b-4 rounded border-blue-800' : ''} `} href={"/products"}>Products</Link>
+          <Link className={`text-lg font-semibold hover:font-bold block mt-4 mx-4 lg:inline-block lg:mt-0  mr-4 ${activePage === 'Certificate' ? 'border-b-4 rounded border-blue-800' : ''} `} href={"/certificate"}>Certificate</Link>
+          <Link className={`text-lg font-semibold hover:font-bold block mt-4 mx-4 lg:inline-block lg:mt-0  mr-4 ${activePage === 'Contact Us' ? 'border-b-4 rounded border-blue-800' : ''} `} href={"/contact"}>Contact Us</Link>
         </div>
         <div className="block mt-4  lg:inline-block lg:mt-0  mr-4">
           <ThemeSwitcher />
