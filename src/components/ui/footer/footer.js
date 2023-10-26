@@ -64,22 +64,22 @@ const Footer = () => {
                             Product
                         </h6>
                         <p className="mb-4">
-                            <a href="#!" className="text-neutral-200 text-sm"
+                            <a href="/products/JP" className="text-neutral-200 text-sm"
                             >Japanese Spare Parts</a
                             >
                         </p>
                         <p className="mb-4">
-                            <a href="#!" className="text-neutral-200 text-sm"
+                            <a href="/products/DE" className="text-neutral-200 text-sm"
                             >European Spare Parts</a
                             >
                         </p>
                         <p className="mb-4">
-                            <a href="#!" className="text-neutral-200 text-sm"
+                            <a href="/products/KR" className="text-neutral-200 text-sm"
                             >Korean Spare Parts</a
                             >
                         </p>
                         <p>
-                            <a href="#!" className="text-neutral-200 text-sm"
+                            <a href="/products/CN" className="text-neutral-200 text-sm"
                             >Chinese Spare Parts</a
                             >
                         </p>

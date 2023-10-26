@@ -279,6 +279,8 @@ const Contact = () => {
 
                 </div>
             </div>
+            <div className="py-8">
+            </div>
             <Footer />
         </div>
 

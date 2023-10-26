@@ -37,6 +37,8 @@ const ImageCarousel = ({ images, captions }) => {
       >
         &#9654;
       </button>
+      <div id="aboutus" className='mb-12'>
+      </div>
     </div>
 
   );
