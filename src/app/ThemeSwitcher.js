@@ -15,7 +15,7 @@ const ThemeSwitcher = () => {
       setTheme("dark");
     }
     console.log('theme set  --->  :',theme);
-  }, []);
+  }, [theme, setTheme]);
   
   return (
     <div>
