@@ -8,11 +8,11 @@ const Services = () => {
             link: "",
             icon: <svg width="95" height="95" viewBox="0 0 118 117" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="59" cy="58.5" r="58.5" fill="#F1F5FF" />
-                <path d="M32.833 82C34.433 83.3333 36.033 84.6666 39.4997 84.6666C46.1663 84.6666 46.1663 79.3333 52.833 79.3333C56.2997 79.3333 57.8997 80.6666 59.4997 82C61.0997 83.3333 62.6997 84.6666 66.1663 84.6666C72.833 84.6666 72.833 79.3333 79.4997 79.3333C82.9663 79.3333 84.5663 80.6666 86.1663 82" stroke="#4971E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M79.18 79.3334C82.0485 74.4922 83.5421 68.9603 83.5 63.3334L59.5 52.6667L35.5 63.3334C35.5 71.0667 38.0067 77.5734 42.9933 84.0267" stroke="#4971E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M78.1663 60.6666V44.6666C78.1663 43.2522 77.6044 41.8956 76.6042 40.8954C75.604 39.8952 74.2475 39.3333 72.833 39.3333H46.1663C44.7519 39.3333 43.3953 39.8952 42.3951 40.8954C41.3949 41.8956 40.833 43.2522 40.833 44.6666V60.6666" stroke="#4971E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M59.5 52.6667V63.3334" stroke="#4971E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M59.5 31.3333V39.3333" stroke="#4971E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M32.833 82C34.433 83.3333 36.033 84.6666 39.4997 84.6666C46.1663 84.6666 46.1663 79.3333 52.833 79.3333C56.2997 79.3333 57.8997 80.6666 59.4997 82C61.0997 83.3333 62.6997 84.6666 66.1663 84.6666C72.833 84.6666 72.833 79.3333 79.4997 79.3333C82.9663 79.3333 84.5663 80.6666 86.1663 82" stroke="#4971E8" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M79.18 79.3334C82.0485 74.4922 83.5421 68.9603 83.5 63.3334L59.5 52.6667L35.5 63.3334C35.5 71.0667 38.0067 77.5734 42.9933 84.0267" stroke="#4971E8" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M78.1663 60.6666V44.6666C78.1663 43.2522 77.6044 41.8956 76.6042 40.8954C75.604 39.8952 74.2475 39.3333 72.833 39.3333H46.1663C44.7519 39.3333 43.3953 39.8952 42.3951 40.8954C41.3949 41.8956 40.833 43.2522 40.833 44.6666V60.6666" stroke="#4971E8" strokeWidth="3"  strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M59.5 52.6667V63.3334" stroke="#4971E8" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M59.5 31.3333V39.3333" stroke="#4971E8" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
         },
 
@@ -21,8 +21,8 @@ const Services = () => {
             link: "",
             icon: <svg width="95" height="95" viewBox="0 0 118 117" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="59" cy="58.5" r="58.5" fill="#F1F5FF" />
-                <path d="M83 36.6V81.4C83 81.8243 82.8314 82.2313 82.5314 82.5314C82.2313 82.8314 81.8243 83 81.4 83H36.6C36.1757 83 35.7687 82.8314 35.4686 82.5314C35.1686 82.2313 35 81.8243 35 81.4V36.6C35 36.1757 35.1686 35.7687 35.4686 35.4686C35.7687 35.1686 36.1757 35 36.6 35H81.4C81.8243 35 82.2313 35.1686 82.5314 35.4686C82.8314 35.7687 83 36.1757 83 36.6Z" stroke="#6082EB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M48.3331 43C48.3331 43 41.6664 51 48.3331 59C54.9997 67 48.3331 75 48.3331 75M58.9997 43C58.9997 43 52.3331 51 58.9997 59C65.6664 67 58.9997 75 58.9997 75M69.6664 43C69.6664 43 62.9997 51 69.6664 59C76.3331 67 69.6664 75 69.6664 75" stroke="#6082EB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M83 36.6V81.4C83 81.8243 82.8314 82.2313 82.5314 82.5314C82.2313 82.8314 81.8243 83 81.4 83H36.6C36.1757 83 35.7687 82.8314 35.4686 82.5314C35.1686 82.2313 35 81.8243 35 81.4V36.6C35 36.1757 35.1686 35.7687 35.4686 35.4686C35.7687 35.1686 36.1757 35 36.6 35H81.4C81.8243 35 82.2313 35.1686 82.5314 35.4686C82.8314 35.7687 83 36.1757 83 36.6Z" stroke="#6082EB" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M48.3331 43C48.3331 43 41.6664 51 48.3331 59C54.9997 67 48.3331 75 48.3331 75M58.9997 43C58.9997 43 52.3331 51 58.9997 59C65.6664 67 58.9997 75 58.9997 75M69.6664 43C69.6664 43 62.9997 51 69.6664 59C76.3331 67 69.6664 75 69.6664 75" stroke="#6082EB" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
         },
         {
@@ -48,7 +48,7 @@ const Services = () => {
             link: "",
             icon: <svg width="95" height="95" className="mx-12" viewBox="0 0 118 117" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="59" cy="58.5" r="58.5" fill="#F1F5FF" />
-                <g clip-path="url(#clip0_901_344)">
+                <g clipPath="url(#clip0_901_344)">
                     <path d="M84.6875 41.375C85.2345 41.375 85.7591 41.5923 86.1459 41.9791C86.5327 42.3659 86.75 42.8905 86.75 43.4375V74.375H37.25V43.4375C37.25 42.8905 37.4673 42.3659 37.8541 41.9791C38.2409 41.5923 38.7655 41.375 39.3125 41.375H84.6875ZM39.3125 37.25C37.6715 37.25 36.0977 37.9019 34.9373 39.0623C33.7769 40.2227 33.125 41.7965 33.125 43.4375V78.5H90.875V43.4375C90.875 41.7965 90.2231 40.2227 89.0627 39.0623C87.9023 37.9019 86.3285 37.25 84.6875 37.25H39.3125ZM29 80.5625H95C95 82.2035 94.3481 83.7773 93.1877 84.9377C92.0273 86.0981 90.4535 86.75 88.8125 86.75H35.1875C33.5465 86.75 31.9727 86.0981 30.8123 84.9377C29.6519 83.7773 29 82.2035 29 80.5625Z" fill="#4971E8" />
                 </g>
                 <defs>
@@ -68,24 +68,24 @@ const Services = () => {
                     Our Services
                 </p>
             </div>
-            <div class="lg:pl-10">
-                <div class="lg:w-3/5 md:w-full w-full text-left ">
-                    <p class="lg:text-lg text-xl">SMES serves the Marine Industry efficiently with a skilled team and advanced technology for overhauls, repairs, and maintenance of various marine equipment. They also offer compressor re-manufacturing, ship supply, and cost-effective IT support with customized software solutions.</p>
+            <div className="lg:pl-10">
+                <div className="lg:w-3/5 md:w-full w-full text-left ">
+                    <p className="lg:text-lg text-xl">SMES serves the Marine Industry efficiently with a skilled team and advanced technology for overhauls, repairs, and maintenance of various marine equipment. They also offer compressor re-manufacturing, ship supply, and cost-effective IT support with customized software solutions.</p>
                 </div>
             </div>
 
             <div className="w-full">
-                <div class="relative rounded-xl overflow-auto">
-                    <div class="max-w mx-auto bg-white shadow-xl min-w-0 dark:bg-slate-800 dark:highlight-white/5">
-                        <div class="overflow-x-auto flex">
+                <div className="relative rounded-xl overflow-auto">
+                    <div className="max-w mx-auto bg-white shadow-xl min-w-0 dark:bg-slate-800 dark:highlight-white/5">
+                        <div className="overflow-x-auto flex">
                             {
                                 services.map((service, index) => (
-                                    <div key={index} class="flex-none py-6 px-3 first:pl-6 last:pr-6">
-                                        <div class="flex flex-col items-center justify-center gap-3 bg-white rounded-3xl shadow-xl  px-8 py-10">
-                                            <span class="bg-light-blue-200 p-2 rounded-full">
+                                    <div key={index} className="flex-none py-6 px-3 first:pl-6 last:pr-6">
+                                        <div className="flex flex-col items-center justify-center gap-3 bg-white rounded-3xl shadow-xl  px-8 py-10">
+                                            <span className="bg-light-blue-200 p-2 rounded-full">
                                                 {service?.icon}
                                             </span>
-                                            <a class="text-lg font-bold" href={service?.link}>{service?.name}</a>
+                                            <a className="text-lg font-bold" href={service?.link}>{service?.name}</a>
                                         </div>
                                     </div>
                                 ))
