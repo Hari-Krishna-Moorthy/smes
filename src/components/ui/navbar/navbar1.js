@@ -1,12 +1,26 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ThemeSwitcher from "src/app/ThemeSwitcher";
 import Logo from "../logo/logo";
-function navbar1() {
+import Link from 'next/link'
+
+function navbar1({ activePage }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [top, setTop] = useState(true)
+
+  // detect whether user has scrolled the page down by 10px
+  const scrollHandler = () => {
+    window.window.scrollY > 10 ? setTop(false) : setTop(true)
+  }
+
+  useEffect(() => {
+    scrollHandler()
+    window.addEventListener('scroll', scrollHandler)
+    return () => window.removeEventListener('scroll', scrollHandler)
+  }, [top])
 
   return (
-    <nav className="flex items-center justify-between flex-wrap p-6">
+    <nav className={`fixed w-full  z-20 md:bg-opacity-90 transition duration-300 ease-in-out ${!top ? ' border-black border-b-1 backdrop-blur-sm ' : ''} flex items-center justify-between flex-wrap p-6`}>
       <div className="flex items-center flex-shrink-0 text-white mr-72">
         <Logo />
       </div>
@@ -32,29 +46,16 @@ function navbar1() {
         </button>
       </div>
       <div
-        className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${
-          isOpen ? "block" : "hidden"
-        }`}
+        className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${isOpen ? "block" : "hidden"
+          }`}
       >
         <div className="text-sm lg:flex-grow">
-          <a href="#" className="block mt-4  lg:inline-block lg:mt-0  mr-4">
-             Home
-          </a>
-          <a href="#" className="block mt-4  lg:inline-block lg:mt-0  mr-4">
-            About Us
-          </a>
-          <a href="#" className="block mt-4  lg:inline-block lg:mt-0  mr-4">
-            Products
-          </a>
-          <a href="/services" className="block mt-4  lg:inline-block lg:mt-0  mr-4">
-            Services
-          </a>
-          <a href="#" className="block mt-4  lg:inline-block lg:mt-0  mr-4">
-            Certificate
-          </a>
-          <a href="#" className="block mt-4  lg:inline-block lg:mt-0  mr-4">
-            Contact Us
-          </a>
+          <Link className={`text-lg font-semibold hover:font-bold block mt-4 mx-4 lg:inline-block lg:mt-0  mr-4 ${activePage == 'Home' ? 'border-b-4 rounded border-blue-800' : ''} `} href={"/"}>Home</Link>
+          <Link className={`text-lg font-semibold hover:font-bold block mt-4 mx-4 lg:inline-block lg:mt-0  mr-4 ${activePage == 'About Us' ? 'border-b-4 rounded border-blue-800' : ''} `} href={"/aboutus"}>About us</Link>
+          <Link className={`text-lg font-semibold hover:font-bold block mt-4 mx-4 lg:inline-block lg:mt-0  mr-4 ${activePage == 'Products' ? 'border-b-4 rounded border-blue-800' : ''} `} href={"/products"}>Products</Link>
+          <Link className={`text-lg font-semibold hover:font-bold block mt-4 mx-4 lg:inline-block lg:mt-0  mr-4 ${activePage == 'Services' ? 'border-b-4 rounded border-blue-800' : ''} `} href={"/services"}>Services</Link>
+          <Link className={`text-lg font-semibold hover:font-bold block mt-4 mx-4 lg:inline-block lg:mt-0  mr-4 ${activePage == 'Certificate' ? 'border-b-4 rounded border-blue-800' : ''} `} href={"/certificate"}>Certificate</Link>
+          <Link className={`text-lg font-semibold hover:font-bold block mt-4 mx-4 lg:inline-block lg:mt-0  mr-4 ${activePage == 'Contact Us' ? 'border-b-4 rounded border-blue-800' : ''} `} href={"/contact"}>Contact Us</Link>
         </div>
         <div className="block mt-4  lg:inline-block lg:mt-0  mr-4">
           <ThemeSwitcher />
