@@ -55,11 +55,11 @@ export default function Services() {
             height={500}
           />
         </div>
-        <div>
-          {getList(selectedId).text.map((item, index) => (
+        <div className="max-h-[500px] overflow-y-auto ml-16 mt-2">
+          {getList(selectedId).text.map((item) => (
             <div
-              className="text-grey-3 font-lexend font-normal leading-6 text-base max-h-[500px] overflow-y-auto ml-16 mt-2"
-              key={index}
+              className="text-grey-3 font-lexend font-normal leading-6 text-base"
+              key={item}
             >
               {item}
               <br />
