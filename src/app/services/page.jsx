@@ -11,6 +11,7 @@ import "./services.css";
 import HeaderLogoWrapper from "./headerLogoWrapper";
 import image from "../../assets/logo/shipServices.png";
 import { getList } from "./helpers";
+import Footer from "../../components/ui/footer/footer";
 export default function Services() {
   const tabs = [
     { id: 1, logo: shipIcon, label: "Ship Repair and Services" },
@@ -80,6 +81,8 @@ export default function Services() {
           </p>
         </div>
       </div>
+      <Footer />
+
     </>
   );
 }
