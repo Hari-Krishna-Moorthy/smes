@@ -6,10 +6,10 @@ import { lapIcon } from "./svg/lapIcon";
 import { refrigerationIcon } from "./svg/refrigerationIcon";
 import { shipStoreIcon } from "./svg/shipStoreIcon";
 import { crewIcon } from "./svg/crewIcon";
-import Navbar from "@/components/ui/navbar/navbar1";
+import Navbar from "../../components/ui/navbar/navbar1";
 import "./services.css";
 import HeaderLogoWrapper from "./headerLogoWrapper";
-import image from "@/assets/logo/shipServices.png";
+import image from "../../assets/logo/shipServices.png";
 import { getList } from "./helpers";
 export default function Services() {
   const tabs = [
