@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { shipIcon } from "./svg/shipIcon";
 import { lapIcon } from "./svg/lapIcon";
 import { refrigerationIcon } from "./svg/refrigerationIcon";
@@ -10,7 +11,7 @@ import Navbar from "../../components/ui/navbar/navbar1";
 import "./services.css";
 import HeaderLogoWrapper from "./headerLogoWrapper";
 import image from "../../assets/logo/shipServices.png";
-import { getList } from "./helpers";
+import { getList, servicesBodyText } from "./helpers";
 import Footer from "../../components/ui/footer/footer";
 export default function Services() {
   const tabs = [
@@ -38,33 +39,20 @@ export default function Services() {
         ))}
       </div>
       <div className="m-12 p-6">
-        <p className="text-gray-600">
-          We SMES serve the Marine Industry in a most efficient and cost
-          effective way. Our team comprises of Marine Engineers with a highly
-          skilled work force with collective experience of more than 25 year.
-          Our workshop is well equipped with all cutting edge technology. We
-          carry out various jobs like overhauls and repair for Generators,
-          Pumps, Purifiers, Compressors and Turbocharge in our workshop and on
-          board overhaul for Main Engines. We provide excellent Quality Service
-          to ShipOwners, ShipManagers and ShipYards to cater all there
-          operational needs. We have a total transparency based feedback system
-          with our customer to assist us no continually innovate. We can provide
-          repairs such as afloat ship repair, Workshop repair, Piping works,
-          Boiler cleaning, new machinery installation, Fabrication. Hull repairs
-          etc. We can provide services such as Marine Surveying, Pre Purchase
-          Survey, Consultancy, Bunker surveys, De-slopping, De-mucking etc.
-          Through our experience in the Marine industry we have short listed and
-          implemented into our company structure and policy. With our experience
-          & knowledge in service sector we are poised to be a customer oriented
-          firm.
-        </p>
+        <p className="text-gray-600">{servicesBodyText}</p>
       </div>
       <div className=" yourClassName p-8 rounded-xl shadow-lg border mx-10 border-gray-200 mt-10 flex-row flex">
         <div className="min-w-max">
           <div className="text-black font-lexend text-xl font-semibold leading-9">
             {tabs[selectedId - 1].label}
           </div>
-          <img className="m-10" src={image.src} alt="Image" />
+          <Image
+            className="m-10"
+            src={image.src}
+            alt="Image"
+            width={500}
+            height={500}
+          />
         </div>
         <div>
           <p className="text-gray-600 max-h-[500px] overflow-y-auto ml-16 mt-2">
@@ -82,7 +70,7 @@ export default function Services() {
         </div>
       </div>
       <Footer />
-
+    
     </>
   );
 }

@@ -104,3 +104,22 @@ export const getList = (id) => {
   ];
   return list[id - 1];
 };
+
+export const servicesBodyText = `We SMES serve the Marine Industry in a most efficient and cost
+effective way. Our team comprises of Marine Engineers with a highly
+skilled work force with collective experience of more than 25 year.
+Our workshop is well equipped with all cutting edge technology. We
+carry out various jobs like overhauls and repair for Generators,
+Pumps, Purifiers, Compressors and Turbocharge in our workshop and on
+board overhaul for Main Engines. We provide excellent Quality Service
+to ShipOwners, ShipManagers and ShipYards to cater all there
+operational needs. We have a total transparency based feedback system
+with our customer to assist us no continually innovate. We can provide
+repairs such as afloat ship repair, Workshop repair, Piping works,
+Boiler cleaning, new machinery installation, Fabrication. Hull repairs
+etc. We can provide services such as Marine Surveying, Pre Purchase
+Survey, Consultancy, Bunker surveys, De-slopping, De-mucking etc.
+Through our experience in the Marine industry we have short listed and
+implemented into our company structure and policy. With our experience
+& knowledge in service sector we are poised to be a customer oriented
+firm.`;
