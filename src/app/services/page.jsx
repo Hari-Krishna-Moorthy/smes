@@ -8,7 +8,6 @@ import { refrigerationIcon } from "./svg/refrigerationIcon";
 import { shipStoreIcon } from "./svg/shipStoreIcon";
 import { crewIcon } from "./svg/crewIcon";
 import Navbar from "../../components/ui/navbar/navbar1";
-import "./services.css";
 import HeaderLogoWrapper from "./headerLogoWrapper";
 import image from "../../assets/logo/shipServices.png";
 import { getList, servicesBodyText } from "./helpers";
@@ -25,8 +24,10 @@ export default function Services() {
 
   return (
     <>
-      <Navbar />
-      <div className="flex items-center justify-between flex-wrap m-6 p-6 services">
+      <div className="h-20">
+        <Navbar activePage={"Services"} />
+      </div>
+      <div className="flex items-center justify-between flex-wrap m-6 py-3 px-5 bg-blue-2">
         {tabs.map((item) => (
           <HeaderLogoWrapper
             logo={item.logo}
@@ -39,9 +40,9 @@ export default function Services() {
         ))}
       </div>
       <div className="m-12 p-6">
-        <p className="text-gray-600">{servicesBodyText}</p>
+        <p className="text-grey-2">{servicesBodyText}</p>
       </div>
-      <div className=" yourClassName p-8 rounded-xl shadow-lg border mx-10 border-gray-200 mt-10 flex-row flex">
+      <div className="rounded-lg p-8 bg-white shadow-services-content border mx-10 border-gray-200 my-10 flex-row flex">
         <div className="min-w-max">
           <div className="text-black font-lexend text-xl font-semibold leading-9">
             {tabs[selectedId - 1].label}
@@ -70,7 +71,6 @@ export default function Services() {
         </div>
       </div>
       <Footer />
-    
     </>
   );
 }
