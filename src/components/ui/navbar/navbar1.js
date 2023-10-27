@@ -46,7 +46,7 @@ function navbar1() {
           <a href="#" className="block mt-4  lg:inline-block lg:mt-0  mr-4">
             Products
           </a>
-          <a href="#" className="block mt-4  lg:inline-block lg:mt-0  mr-4">
+          <a href="/services" className="block mt-4  lg:inline-block lg:mt-0  mr-4">
             Services
           </a>
           <a href="#" className="block mt-4  lg:inline-block lg:mt-0  mr-4">
