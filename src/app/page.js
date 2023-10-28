@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import Footer from "src/components/ui/footer/footer";
 import Navbar from "src/components/ui/navbar/navbar1";
 import Home from "./home";
+import Aboutus from "src/components/ui/aboutus/aboutus";
+import OurProduct from "src/components/ui/ourproduct/ourproduct"
 
 export default function Site() {
   const [navbarPage, setNavbarPage] = useState("Home")
@@ -26,6 +28,8 @@ export default function Site() {
           <Navbar activePage={navbarPage} />
       </div>
       <Home />
+      <OurProduct/>
+      <Aboutus/>
       <Footer />
     </main>
   );
