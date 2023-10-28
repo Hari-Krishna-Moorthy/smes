@@ -26,7 +26,7 @@ const Navbar = () => {
             <div>
                 <div className="grid grid-cols-5 gap-3 m-2">
                     <div className="col-span-1 m-5 mt-1">
-                        <Link href={"/"} ><Logo /></Link>
+                        <Link href={"/"} ><Logo color={"default"}  /></Link>
                     </div>
                     <div className="col-span-3 m-2">
                         <ul className='flex flex-nowrap grow justify-items-stretch items-center'>

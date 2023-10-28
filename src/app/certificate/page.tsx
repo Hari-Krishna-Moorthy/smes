@@ -32,6 +32,8 @@ export default function Certificate() {
                   src={Certificate1}
                   alt=""
                   className='mb-4'
+                  width={1000}
+                  height={1000}
                 />
                 <a>
                   <h5 className="text-l text-certi font-semibold tracking-tight ">Certificate of Approval by DAS</h5>
@@ -44,6 +46,8 @@ export default function Certificate() {
               <div className="max-w-sm p-6 bg-certi border border-gray-200 rounded-lg shadow  text-center">
                 <Image
                   src={Certificate2}
+                  width={1000}
+                  height={1000}
                   alt=""
                   className='mb-4'
                 />
@@ -58,6 +62,8 @@ export default function Certificate() {
               <div className="max-w-sm p-6 bg-certi border border-gray-200 rounded-lg shadow  text-center">
                 <Image
                   src={Certificate3}
+                  width={1000}
+                  height={1000}
                   alt=""
                   className='mb-4'
                 />
@@ -72,6 +78,8 @@ export default function Certificate() {
               <div className="max-w-sm p-6 bg-certi border border-gray-200 rounded-lg shadow  text-center">
                 <Image
                   src={Certificate4}
+                  width={1000}
+                  height={1000}
                   alt=""
                   className='mb-4'
                 />
@@ -86,6 +94,8 @@ export default function Certificate() {
               <div className="max-w-sm p-6 bg-certi border border-gray-200 rounded-lg shadow  text-center">
                 <Image
                   src={Certificate5}
+                  width={1000}
+                  height={1000}
                   alt=""
                   className='mb-4'
                 />
@@ -100,6 +110,8 @@ export default function Certificate() {
               <div className="max-w-sm p-6 bg-certi border border-gray-200 rounded-lg shadow  text-center">
                 <Image
                   src={Certificate6}
+                  width={1000}
+                  height={1000}
                   alt=""
                   className='mb-4'
                 />
