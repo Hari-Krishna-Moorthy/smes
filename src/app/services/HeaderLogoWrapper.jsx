@@ -2,10 +2,9 @@
 
 import React from "react";
 
-const HeaderLogoWrapper = ({ logo, label, id, isSelected, onSelect, key }) => {
+const HeaderLogoWrapper = ({ logo, label, id, isSelected, onSelect }) => {
   return (
     <div
-      key={key}
       className={`flex-col py-10 px-6 rounded-lg bg-whiteflex items-center justify-center ${
         isSelected ? "bg-white" : ""
       }`}
