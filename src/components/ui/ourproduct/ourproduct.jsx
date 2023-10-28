@@ -48,7 +48,7 @@ const Ourproduct = () => {
 
           {
             products.map((product, index) => {
-              return <SwiperSlide >
+              return <SwiperSlide key={index} >
               <div className="flex flex-col gap-20 mb-20 max-w-3xl mx-auto mt-10 md:col-auto">
                 <div className="relative flex items-start">
                   <div className="max-w-sm p-3 bg-light dark:bg-dark1 border border-light1 rounded-lg  text-center">
