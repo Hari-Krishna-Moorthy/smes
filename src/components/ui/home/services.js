@@ -63,13 +63,11 @@ const Services = () => {
 
     return (
         <div  className="mx-10 mb-10" style={{ background: "#F2F5FD99`" }}>
-            <div className="lg:px-10 py-10">
-                <p className="text-3xl text-bold" style={{ color: "#1C204F" }}>
-                    Our Services
-                </p>
+            <div className="lg:px-10 py-4">
+        <h2 className="text-5xl text-light1  text-left font-bold dark:text-dark1 align-middle">Our Services</h2>
             </div>
-            <div className="lg:pl-10">
-                <div className="lg:w-3/5 md:w-full w-full text-left ">
+            <div className="lg:pl-10 py-4 pb-5">
+                <div className="lg:w-3/5 md:w-full w-full text-left mb-4">
                     <p className="lg:text-lg text-xl">SMES serves the Marine Industry efficiently with a skilled team and advanced technology for overhauls, repairs, and maintenance of various marine equipment. They also offer compressor re-manufacturing, ship supply, and cost-effective IT support with customized software solutions.</p>
                 </div>
             </div>
@@ -81,7 +79,7 @@ const Services = () => {
                             {
                                 services.map((service, index) => (
                                     <div key={index} className="flex-none py-6 px-3 first:pl-6 last:pr-6">
-                                        <div className="flex flex-col items-center justify-center gap-3 bg-white rounded-3xl shadow-xl  px-8 py-10">
+                                        <div className="flex flex-col items-center justify-center gap-3 bg-white dark:bg-dark rounded-3xl shadow-xl  px-8 py-10">
                                             <span className="bg-light-blue-200 p-2 rounded-full">
                                                 {service?.icon}
                                             </span>
