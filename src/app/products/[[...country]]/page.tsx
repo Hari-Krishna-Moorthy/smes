@@ -1,12 +1,10 @@
 'use client'
 import axios from 'axios'
-import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import ImageSlider from '../../../components/ImageSlider'
-import Category from '../../../interfaces/ProductCategory'
-import Link from 'next/link'
-import { head, isEmpty } from 'lodash'
 import ProductList from '../../../components/ProductList'
+import Product from '../../../interfaces/Product'
+import Category from '../../../interfaces/ProductCategory'
 
 const ProductsPromo = () => {
   return (
@@ -68,14 +66,32 @@ const getProductCategories = async () => {
   return data
 }
 
-const ProductCategories = ({ countryMeta }) => {
+const getProducts = async ({ code }) => {
+  const { data } = await axios.get<{ products: Product[] }>(
+    `/api/products?code=${code}`
+  )
+  return data.products
+}
+
+const ProductCategories = ({ countryMeta, handleCodeChange }) => {
   const [categories, setCategories] = useState<Category[]>()
+  const [selectedCategory, setSelectedCategory] = useState<
+    Category | undefined
+  >()
+  const [products, setProducts] = useState<Product[]>()
 
   useEffect(() => {
-    if (!categories) {
-      ;(async () => setCategories(await getProductCategories()))()
-    }
+    if (!categories) getProductCategories().then(setCategories)
   }, [])
+
+  useEffect(() => {
+    if (countryMeta.code) {
+      setSelectedCategory(
+        categories?.find(({ code }) => code == countryMeta.code)
+      )
+      getProducts({ code: countryMeta.code }).then(setProducts)
+    }
+  }, [countryMeta?.code])
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -110,22 +126,13 @@ const ProductCategories = ({ countryMeta }) => {
                   </div>
                 </div>
               ))
-          : categories.map((info) => <Categories {...info} />)}
+          : categories.map((info) => (
+              <Categories category={info} onClick={handleCodeChange} />
+            ))}
       </div>
       <div className="w-full">
-        {countryMeta?.code && (
-          <ProductList
-            name={'Japanese Spare parts'}
-            products={[
-              'Turbocharger service and overhaul',
-              'Turbocharger service and overhaul',
-              'Turbocharger service and overhaul',
-              'Turbocharger service and overhaul',
-              'Turbocharger service and overhaul',
-              'Turbocharger service and overhaul',
-              'Turbocharger service and overhaul',
-            ]}
-          />
+        {selectedCategory && products && (
+          <ProductList name={selectedCategory.name} products={products} />
         )}
       </div>
     </div>
@@ -137,29 +144,19 @@ export default function Products({
 }: {
   params: { country: string[] | undefined }
 }) {
-  // const [countryMeta, setCountryMeta] = useState<
-  //   | {
-  //       code: string
-  //     }
-  //   | undefined
-  // >()
+  const [countryMeta, setCountryMeta] = useState<{
+    code: string | undefined
+  }>({
+    code: undefined,
+  })
 
-  // useEffect(() => {
-  //   if (!isEmpty(params.country))
-  //     setCountryMeta({
-  //       code: head(params.country) as string,
-  //     })
-
-  //   return () => setCountryMeta(undefined)
-  // }, [])
-
-  const countryMeta = {
-    code: head(params.country) as string,
-  }
   return (
     <div className="h-full bg-white text-black font-lexEnd container mx-auto px-4 py-4">
       {!countryMeta.code && <ProductsPromo />}
-      <ProductCategories countryMeta={countryMeta} />
+      <ProductCategories
+        countryMeta={countryMeta}
+        handleCodeChange={(code: string) => setCountryMeta({ code })}
+      />
     </div>
   )
 }
