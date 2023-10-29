@@ -1,10 +1,25 @@
-import React from 'react'
+import { isEmpty, trim } from 'lodash'
+import React, { useEffect, useState } from 'react'
+import Product from '../../interfaces/Product'
 
 const Product: React.FC<{ name: string }> = ({ name }) => <div>{name}</div>
 const ProductList: React.FC<{
   name: string
-  products: string[]
+  products: Product[]
 }> = ({ name, products }) => {
+  const [productsOnFilter, setProductsOnFilter] = useState(products)
+  const [filter, setFilter] = useState({
+    searchTerm: '',
+  })
+
+  useEffect(() => {
+    if (isEmpty(trim(filter.searchTerm))) return setProductsOnFilter(products)
+
+    const regex = new RegExp(filter.searchTerm, 'i')
+    setProductsOnFilter(productsOnFilter.filter(({ name }) => regex.test(name)))
+    console.log(productsOnFilter)
+  }, [filter.searchTerm])
+
   return (
     <div className="p-8 my-8 mx-4 h-full shadow-md shadow-[#C4CFD4] outline-1 border-[1px]  rounded-md">
       <div className="flex justify-between items-center  whitespace-nowrap">
@@ -33,12 +48,20 @@ const ProductList: React.FC<{
             type="text"
             id="search"
             placeholder="Search something.."
+            name="searchTerm"
+            value={filter.searchTerm}
+            onChange={({ target: { name, value } }) =>
+              setFilter((filter) => ({
+                ...filter,
+                [name]: value,
+              }))
+            }
           />
         </div>
       </div>
       <div className="py-8 grid grid-cols-3 gap-5">
-        {products.map((product, index) => (
-          <Product key={index} name={product} />
+        {productsOnFilter.map((product) => (
+          <Product {...product} />
         ))}
       </div>
     </div>

@@ -1,14 +1,10 @@
 'use client'
 import axios from 'axios'
-import Footer from "../../../components/ui/footer/footer";
-import Navbar from '../../../components/ui/navbar/navbar1'
 import React, { useEffect, useState } from 'react'
 import ImageSlider from '../../../components/ImageSlider'
-import Category from '../../../interfaces/ProductCategory'
-import Link from 'next/link'
-import { head, isEmpty } from 'lodash'
 import ProductList from '../../../components/ProductList'
-import Image from 'next/image';
+import Product from '../../../interfaces/Product'
+import Category from '../../../interfaces/ProductCategory'
 
 const ProductsPromo = () => {
   return (
@@ -35,7 +31,11 @@ const ProductsPromo = () => {
   )
 }
 
-const Categories: React.FC<Category> = ({ name, thumbnailUrl, flag, code }) => {
+const Categories: React.FC<{
+  category: Category
+  onClick: (code: string) => void
+}> = ({ onClick, category }) => {
+  const { name, thumbnailUrl, flag, code } = category
   return (
     <div className="h-full w-full hover:scale-[101%] hover:shadow-lg shadow-sm transition-all transform-gpu ease-in-out duration-200 relative hs-[20.8125rem] ws-[27.375rem]  rounded-[0.5rem] overflow-hidden drop-shadow-md  bg-black">
       <Image
@@ -45,21 +45,20 @@ const Categories: React.FC<Category> = ({ name, thumbnailUrl, flag, code }) => {
         height={1000}
         className="w-full h-full object-cover opacity-70"
       />
-      <Link href={`/products/${code}`}>
-        <div className="absolute flex justify-center  gap-1 text-center align-baseline text-xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div className="w-8 rounded-full overflow-hidden align-middle justify-center">
-            <Image 
-            
+
+      <div
+        onClick={() => onClick(code)}
+        className="absolute flex justify-center  gap-1 text-center align-baseline text-xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        <div className="w-8 rounded-full overflow-hidden align-middle justify-center">
+          <img
             className="w-full object-cover h-full"
-            width={1000}
-            height={1000}
-              src={flag.svg}
-              alt={flag.alt}
-            />
-          </div>
-          <h1 className="whitespace-nowrap">{name}</h1>
+            src={flag.svg}
+            alt={flag.alt}
+          />
         </div>
-      </Link>
+        <h1 className="whitespace-nowrap">{name}</h1>
+      </div>
     </div>
   )
 }
@@ -69,14 +68,32 @@ const getProductCategories = async () => {
   return data
 }
 
-const ProductCategories = ({ countryMeta }) => {
+const getProducts = async ({ code }) => {
+  const { data } = await axios.get<{ products: Product[] }>(
+    `/api/products?code=${code}`
+  )
+  return data.products
+}
+
+const ProductCategories = ({ countryMeta, handleCodeChange }) => {
   const [categories, setCategories] = useState<Category[]>()
+  const [selectedCategory, setSelectedCategory] = useState<
+    Category | undefined
+  >()
+  const [products, setProducts] = useState<Product[]>()
 
   useEffect(() => {
-    if (!categories) {
-      ; (async () => setCategories(await getProductCategories()))()
+    if (!categories) getProductCategories().then(setCategories)
+  }, [])
+
+  useEffect(() => {
+    if (countryMeta.code) {
+      setSelectedCategory(
+        categories?.find(({ code }) => code == countryMeta.code)
+      )
+      getProducts({ code: countryMeta.code }).then(setProducts)
     }
-  }, [categories, setCategories])
+  }, [countryMeta?.code])
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -88,44 +105,35 @@ const ProductCategories = ({ countryMeta }) => {
       >
         {!categories
           ? Array(4)
-            .fill(0)
-            .map((_, index) => (
-              <div key={index} className="border shadow rounded-md px-4 py-4 h-40 w-full mx-auto">
-                <div className="animate-pulse flex space-x-4 ">
-                  <div className="rounded-full bg-slate-700 h-10 w-10"></div>
-                  <div className="flex-1 space-y-6 py-1">
-                    <div className="h-2 bg-slate-700 rounded"></div>
-                    <div className="space-y-3">
-                      <div className="grid grid-cols-3 gap-4">
-                        <div className="h-2 bg-slate-700 rounded col-span-2"></div>
-                        <div className="h-2 bg-slate-700 rounded col-span-1"></div>
-                      </div>
+              .fill(0)
+              .map(() => (
+                <div className="border shadow rounded-md px-4 py-4 h-40 w-full mx-auto">
+                  <div className="animate-pulse flex space-x-4 ">
+                    <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                    <div className="flex-1 space-y-6 py-1">
                       <div className="h-2 bg-slate-700 rounded"></div>
-                      <div className="grid grid-cols-3 gap-4">
-                        <div className="h-2 bg-slate-700 rounded col-span-2"></div>
-                        <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                      <div className="space-y-3">
+                        <div className="grid grid-cols-3 gap-4">
+                          <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                          <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                        </div>
+                        <div className="h-2 bg-slate-700 rounded"></div>
+                        <div className="grid grid-cols-3 gap-4">
+                          <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                          <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))
-          : categories.map((info, index) => <Categories key={index} {...info} />)}
+              ))
+          : categories.map((info) => (
+              <Categories category={info} onClick={handleCodeChange} />
+            ))}
       </div>
       <div className="w-full">
-        {countryMeta?.code && (
-          <ProductList
-            name={'Japanese Spare parts'}
-            products={[
-              'Turbocharger service and overhaul',
-              'Turbocharger service and overhaul',
-              'Turbocharger service and overhaul',
-              'Turbocharger service and overhaul',
-              'Turbocharger service and overhaul',
-              'Turbocharger service and overhaul',
-              'Turbocharger service and overhaul',
-            ]}
-          />
+        {selectedCategory && products && (
+          <ProductList name={selectedCategory.name} products={products} />
         )}
       </div>
     </div>
@@ -137,35 +145,19 @@ export default function Products({
 }: {
   params: { country: string[] | undefined }
 }) {
-  // const [countryMeta, setCountryMeta] = useState<
-  //   | {
-  //       code: string
-  //     }
-  //   | undefined
-  // >()
+  const [countryMeta, setCountryMeta] = useState<{
+    code: string | undefined
+  }>({
+    code: undefined,
+  })
 
-  // useEffect(() => {
-  //   if (!isEmpty(params.country))
-  //     setCountryMeta({
-  //       code: head(params.country) as string,
-  //     })
-
-  //   return () => setCountryMeta(undefined)
-  // }, [])
-
-  const countryMeta = {
-    code: head(params.country) as string,
-  }
   return (
-    <div>
-      <div className="h-20">
-        <Navbar activePage={"Products"} />
-      </div>
-      <div className="h-full bg-white text-black font-lexEnd container mx-auto px-4 py-4">
-        {!countryMeta.code && <ProductsPromo />}
-        <ProductCategories countryMeta={countryMeta} />
-      </div>
-      <Footer />
+    <div className="h-full bg-white text-black font-lexEnd container mx-auto px-4 py-4">
+      {!countryMeta.code && <ProductsPromo />}
+      <ProductCategories
+        countryMeta={countryMeta}
+        handleCodeChange={(code: string) => setCountryMeta({ code })}
+      />
     </div>
   )
 }
