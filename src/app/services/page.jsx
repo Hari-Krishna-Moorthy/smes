@@ -8,7 +8,7 @@ import { refrigerationIcon } from "./svg/refrigerationIcon";
 import { shipStoreIcon } from "./svg/shipStoreIcon";
 import { crewIcon } from "./svg/crewIcon";
 import Navbar from "../../components/ui/navbar/navbar1";
-import HeaderLogoWrapper from "./headerLogoWrapper";
+import HeaderLogoWrapper from "../services/HeaderLogoWrapper";
 import image from "../../assets/logo/shipServices.png";
 import { getList, servicesBodyText } from "./helpers";
 import Footer from "../../components/ui/footer/footer";
@@ -28,12 +28,12 @@ export default function Services() {
         <Navbar activePage={"Services"} />
       </div>
       <div className="flex items-center justify-between flex-wrap m-6 py-3 px-5 bg-blue-2">
-        {tabs.map((item) => (
+        {tabs.map((item, index) => (
           <HeaderLogoWrapper
             logo={item.logo}
             label={item.label}
             id={item.id}
-            key={item.id}
+            key={index}
             isSelected={selectedId === item.id}
             onSelect={(id) => setSelectedId(id)}
           />
@@ -56,7 +56,7 @@ export default function Services() {
           />
         </div>
         <div className="max-h-[500px] overflow-y-auto ml-16 mt-2">
-          {getList(selectedId).text.map((item) => (
+          {getList(selectedId).text.map((item, index) => (
             <div
               className="text-grey-3 font-lexend font-normal leading-6 text-base"
               key={item}
