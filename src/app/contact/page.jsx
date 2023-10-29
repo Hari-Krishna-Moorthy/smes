@@ -1,33 +1,17 @@
 "use client"
 import React, { useState } from "react";
-import { MapContainer, TileLayer, Marker, Tooltip } from 'react-leaflet';
 import "./contact.css";
 import Navbar from "../../components/ui/navbar/navbar1";
 import Footer from "../../components/ui/footer/footer";
-import L from 'leaflet';
 
 
 const Contact = () => {
-
-    const markerIcon = (color) => {
-        return L.divIcon({
-            html: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill=${color} height="24" width="24" version="1.1" id="Capa_1" viewBox="0 0 48.127 48.127" xml:space="preserve">
-            <g>
-                <g>
-                    <path style="fill:#010002;" d="M24.063,0C13.854,0,5.547,8.306,5.547,18.516c0,9.649,15.368,26.264,17.12,28.127l1.396,1.484    l1.395-1.484C27.21,44.78,42.58,28.164,42.58,18.516C42.578,8.306,34.272,0,24.063,0z M24.063,42.494    C18.955,36.783,9.378,24.782,9.378,18.515c0-8.097,6.587-14.685,14.685-14.685c8.097,0,14.685,6.588,14.685,14.685    C38.747,24.776,29.17,36.78,24.063,42.494z"/>
-                    <path style="fill:#010002;" d="M24.063,10.854c-4.225,0-7.662,3.437-7.662,7.662s3.437,7.662,7.662,7.662s7.662-3.437,7.662-7.662    C31.724,14.291,28.287,10.854,24.063,10.854z"/>
-                </g>
-            </g>
-            </svg>`,
-        });
-    };
 
     let CENTRAL_LOCATION = [32.4652518, 28.8260857];
     const locations = [
         {
             lat: 1.316,
             lon: 103.698,
-            icon: markerIcon("#ff0000"),
             name: "Singapore",
             address: {
                 address: {
@@ -52,7 +36,6 @@ const Contact = () => {
         {
             lat: 6.872,
             lon: 80.0003,
-            icon: markerIcon("#00ff00"),
             name: "Sri Lanka",
             address: {
                 address: {
@@ -76,7 +59,6 @@ const Contact = () => {
         {
             lat: 13.0131785,
             lon: 77.6188653,
-            icon: markerIcon("#0000ff"),
             name: "India",
             address: {
                 address: {
@@ -101,7 +83,6 @@ const Contact = () => {
         {
             lat: 25.2048493,
             lon: 55.2707828,
-            icon: markerIcon("#0000ff"),
             name: "Uniten Arab Emirates",
             address: {
                 address: {
@@ -126,7 +107,6 @@ const Contact = () => {
         {
             lat: 35.8557741,
             lon: 140.4071997,
-            icon: markerIcon("#00ff00"),
             name: "Japan",
             address: {
                 address: {
@@ -150,7 +130,6 @@ const Contact = () => {
         {
             lat: 30.308554599999997,
             lon: -81.5274832,
-            icon: markerIcon("#ff0000"),
             name: "USA",
             address: {
                 address: {
@@ -190,7 +169,7 @@ const Contact = () => {
 
             <div id="map" className="mx-10 flex flex-col md:flex-row">
                 <div className="w-full md:w-4/6" style={{ maxWidth: "100%", maxHeight: "675px" }}>
-                    <MapContainer zoom={zoomLevel} center={CENTRAL_LOCATION} className="grayscale-map">
+                    {/* <MapContainer zoom={zoomLevel} center={CENTRAL_LOCATION} className="grayscale-map">
                         <TileLayer
                             url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
                         />
@@ -206,7 +185,7 @@ const Contact = () => {
                                     </Tooltip>
                                 </Marker>
                             ))}
-                    </MapContainer>
+                    </MapContainer> */}
                 </div>
                 <div className="w-full md:w-2/6 text-black" style={{ backgroundColor: "#DEE6FB", minHeight: "675px" }}>
                     {/* Office Name with google map link */}
