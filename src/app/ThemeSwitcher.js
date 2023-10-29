@@ -10,7 +10,7 @@ const ThemeSwitcher = () => {
     console.log('current hour --->  :',currentHour);
     // Assuming light mode from 7 AM to 7 PM, and dark mode from 7 PM to 7 AM
     if (currentHour >= 7 && currentHour < 19) {
-      setTheme("light");
+      setTheme("dark");
     } else {
       setTheme("dark");
     }

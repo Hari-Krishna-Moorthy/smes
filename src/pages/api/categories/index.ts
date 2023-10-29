@@ -70,22 +70,22 @@ export default async function handler(
   if (isEmpty(countryCodeMap)) countryCodeMap = await getCountryCodesMap()
   const productCategories = [
     {
-      thumbnailUrl: 'http://localhost:3000/categories/Rectangle%2024874.png',
+      thumbnailUrl: '/categories/Rectangle%2024874.png',
       name: 'Japanese spare parts',
       code: 'JP',
     },
     {
-      thumbnailUrl: 'http://localhost:3000/categories/Rectangle%2024875.png',
+      thumbnailUrl: '/categories/Rectangle%2024875.png',
       name: 'Korean spare parts',
       code: 'KR',
     },
     {
-      thumbnailUrl: 'http://localhost:3000/categories/Rectangle%2024876.png',
+      thumbnailUrl: '/categories/Rectangle%2024876.png',
       name: 'European spare parts',
       code: 'DE',
     },
     {
-      thumbnailUrl: 'http://localhost:3000/categories/Rectangle%2024877.png',
+      thumbnailUrl: '/categories/Rectangle%2024877.png',
       name: 'Chinese Spare Parts',
       code: 'CN',
     },
