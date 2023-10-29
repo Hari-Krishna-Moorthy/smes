@@ -38,11 +38,9 @@ const Categories: React.FC<{
   const { name, thumbnailUrl, flag, code } = category
   return (
     <div className="h-full w-full hover:scale-[101%] hover:shadow-lg shadow-sm transition-all transform-gpu ease-in-out duration-200 relative hs-[20.8125rem] ws-[27.375rem]  rounded-[0.5rem] overflow-hidden drop-shadow-md  bg-black">
-      <Image
+      <img
         src={thumbnailUrl}
         alt={name}
-        width={1000}
-        height={1000}
         className="w-full h-full object-cover opacity-70"
       />
 
@@ -98,10 +96,11 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div
-        className={`${countryMeta?.code
-          ? 'flex  gap-3 h-[9.75rem]'
-          : 'w-2/4 grid grid-cols-2 justify-center align-middle gap-3'
-          } mx-auto`}
+        className={`${
+          countryMeta?.code
+            ? 'flex  gap-3 h-[9.75rem]'
+            : 'w-2/4 grid grid-cols-2 justify-center align-middle gap-3'
+        } mx-auto`}
       >
         {!categories
           ? Array(4)
