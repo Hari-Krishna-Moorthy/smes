@@ -18,7 +18,11 @@ const ImageCarousel = ({ images, captions }) => {
         <div className="flex transition-transform duration-300 ease-in-out transform translate-x-full" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
           {images.map((image, index) => (
             <div key={index} className="w-full flex-shrink-0 relative">
-              <Image src={image} alt={`Image ${index + 1}`} className="w-full h-full" />
+              <Image src={image} 
+              
+              width={1000}
+              height={1000}
+              alt={`Image ${index + 1}`} className="w-full h-full" />
               <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white">
                 <h1 style={{ padding: "0px 35%" }} className="text-3xl font-bold text-center">{captions[index]}</h1>
               </div>
@@ -38,6 +42,8 @@ const ImageCarousel = ({ images, captions }) => {
       >
         &#9654;
       </button>
+      <div id="aboutus" className='mb-12'>
+      </div>
     </div>
 
   );

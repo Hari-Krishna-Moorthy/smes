@@ -38,7 +38,7 @@ const ProductsPromo = () => {
 const Categories: React.FC<Category> = ({ name, thumbnailUrl, flag, code }) => {
   return (
     <div className="h-full w-full hover:scale-[101%] hover:shadow-lg shadow-sm transition-all transform-gpu ease-in-out duration-200 relative hs-[20.8125rem] ws-[27.375rem]  rounded-[0.5rem] overflow-hidden drop-shadow-md  bg-black">
-       <Image
+      <Image
         src={thumbnailUrl}
         alt={name}
         width={1000}
@@ -48,12 +48,13 @@ const Categories: React.FC<Category> = ({ name, thumbnailUrl, flag, code }) => {
       <Link href={`/products/${code}`}>
         <div className="absolute flex justify-center  gap-1 text-center align-baseline text-xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <div className="w-8 rounded-full overflow-hidden align-middle justify-center">
-            <Image
-              className="w-full object-cover h-full"
+            <Image 
+            
+            className="w-full object-cover h-full"
+            width={1000}
+            height={1000}
               src={flag.svg}
               alt={flag.alt}
-              width={1000}
-              height={1000}
             />
           </div>
           <h1 className="whitespace-nowrap">{name}</h1>
@@ -75,7 +76,7 @@ const ProductCategories = ({ countryMeta }) => {
     if (!categories) {
       ; (async () => setCategories(await getProductCategories()))()
     }
-  }, [categories])
+  }, [categories, setCategories])
 
   return (
     <div className="container mx-auto px-4 py-8">
