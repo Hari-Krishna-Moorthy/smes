@@ -33,7 +33,11 @@ const ProductsPromo = () => {
   )
 }
 
-const Categories: React.FC<Category> = ({ name, thumbnailUrl, flag, code }) => {
+const Categories: React.FC<{
+  category: Category
+  onClick: (code: string) => void
+}> = ({ onClick, category }) => {
+  const { name, thumbnailUrl, flag, code } = category
   return (
     <div className="h-full w-full hover:scale-[101%] hover:shadow-lg shadow-sm transition-all transform-gpu ease-in-out duration-200 relative hs-[20.8125rem] ws-[27.375rem]  rounded-[0.5rem] overflow-hidden drop-shadow-md  bg-black">
       <img
@@ -41,18 +45,20 @@ const Categories: React.FC<Category> = ({ name, thumbnailUrl, flag, code }) => {
         alt={name}
         className="w-full h-full object-cover opacity-70"
       />
-      <Link href={`/products/${code}`}>
-        <div className="absolute flex justify-center  gap-1 text-center align-baseline text-xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div className="w-8 rounded-full overflow-hidden align-middle justify-center">
-            <img
-              className="w-full object-cover h-full"
-              src={flag.svg}
-              alt={flag.alt}
-            />
-          </div>
-          <h1 className="whitespace-nowrap">{name}</h1>
+
+      <div
+        onClick={() => onClick(code)}
+        className="absolute flex justify-center  gap-1 text-center align-baseline text-xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        <div className="w-8 rounded-full overflow-hidden align-middle justify-center">
+          <img
+            className="w-full object-cover h-full"
+            src={flag.svg}
+            alt={flag.alt}
+          />
         </div>
-      </Link>
+        <h1 className="whitespace-nowrap">{name}</h1>
+      </div>
     </div>
   )
 }
