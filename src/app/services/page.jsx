@@ -27,7 +27,7 @@ export default function Services() {
       <div className="h-20">
         <Navbar activePage={"Services"} />
       </div>
-      <div className="flex items-center justify-between flex-wrap m-6 py-3 px-5 bg-blue-2">
+      <div className="flex items-center justify-between flex-wrap m-6 py-3 px-2 bg-[#DEE6FB]  dark:bg-[#192054] ">
         {tabs.map((item, index) => (
           <HeaderLogoWrapper
             logo={item.logo}
@@ -40,11 +40,11 @@ export default function Services() {
         ))}
       </div>
       <div className="m-12 p-6">
-        <p className="text-grey-2">{servicesBodyText}</p>
+        <p className="text-[#D4D7E8]">{servicesBodyText}</p>
       </div>
-      <div className="rounded-lg p-8 bg-white shadow-services-content border mx-10 border-gray-200 my-10 flex-row flex">
+      <div className="rounded-lg p-8 bg-white dark:bg-dark shadow-services-content border mx-10 border-gray-200 my-10 flex-row flex">
         <div className="min-w-max">
-          <div className="text-black font-lexend text-xl font-semibold leading-9">
+          <div className="text-black1  font-lexend text-xl font-semibold leading-9">
             {tabs[selectedId - 1].label}
           </div>
           <Image
@@ -58,10 +58,12 @@ export default function Services() {
         <div className="max-h-[500px] overflow-y-auto ml-16 mt-2">
           {getList(selectedId).text.map((item, index) => (
             <div
-              className="text-grey-3 font-lexend font-normal leading-6 text-base"
-              key={item}
+              className="font-lexend font-normal leading-6 text-base"
+              key={index}
             >
-              {item}
+              <p className=" dark:text-white">
+                {item}
+              </p>
               <br />
               <br />
             </div>
