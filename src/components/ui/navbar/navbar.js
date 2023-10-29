@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import ThemeSwitcher from '@/app/ThemeSwitcher'
+import ThemeSwitcher from 'src/app/ThemeSwitcher'
 import Link from 'next/link'
 import Logo from '../logo/logo'
 
@@ -22,11 +22,11 @@ const Navbar = () => {
 
 
     return (
-        <header  className= {` fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${!top ? ' backdrop-blur-sm shadow-lg' : ''}`}>
+        <header  className= {` static w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${!top ? ' backdrop-blur-sm shadow-lg' : ''}`}>
             <div>
                 <div className="grid grid-cols-5 gap-3 m-2">
                     <div className="col-span-1 m-5 mt-1">
-                        <Link href={"/"} ><Logo /></Link>
+                        <Link href={"/"} ><Logo color={"default"}  /></Link>
                     </div>
                     <div className="col-span-3 m-2">
                         <ul className='flex flex-nowrap grow justify-items-stretch items-center'>
