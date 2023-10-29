@@ -1,4 +1,5 @@
-"use client";
+"use client"
+
 import React, { useState, useEffect } from "react";
 import ThemeSwitcher from "src/app/ThemeSwitcher";
 import Logo from "../logo/logo";
