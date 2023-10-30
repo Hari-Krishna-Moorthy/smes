@@ -7,6 +7,7 @@ import Navbar from '../../../components/ui/navbar/navbar1'
 import ProductList from '../../../components/ProductList'
 import Product from '../../../interfaces/Product'
 import Category from '../../../interfaces/ProductCategory'
+import Image from 'next/image'
 
 const ProductsPromo = () => {
   return (
@@ -40,7 +41,9 @@ const Categories: React.FC<{
   const { name, thumbnailUrl, flag, code } = category
   return (
     <div className="h-full w-full hover:scale-[101%] hover:shadow-lg shadow-sm transition-all transform-gpu ease-in-out duration-200 relative hs-[20.8125rem] ws-[27.375rem]  rounded-[0.5rem] overflow-hidden drop-shadow-md  bg-black">
-      <img
+      <Image
+      width={1000}
+      height={1000}
         src={thumbnailUrl}
         alt={name}
         className="w-full h-full object-cover opacity-70"
@@ -51,7 +54,9 @@ const Categories: React.FC<{
         className="absolute flex justify-center  gap-1 text-center align-baseline text-xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       >
         <div className="w-8 rounded-full overflow-hidden align-middle justify-center">
-          <img
+          <Image
+          width={1000}
+          height={1000}
             className="w-full object-cover h-full"
             src={flag.svg}
             alt={flag.alt}
@@ -84,7 +89,7 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
 
   useEffect(() => {
     if (!categories) getProductCategories().then(setCategories)
-  }, [])
+  }, [categories])
 
   useEffect(() => {
     if (countryMeta.code) {
@@ -93,7 +98,7 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
       )
       getProducts({ code: countryMeta.code }).then(setProducts)
     }
-  }, [countryMeta?.code])
+  }, [countryMeta, setSelectedCategory, categories, ])
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -107,8 +112,8 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
         {!categories
           ? Array(4)
               .fill(0)
-              .map(() => (
-                <div className="border shadow rounded-md px-4 py-4 h-40 w-full mx-auto">
+              .map((_, index) => (
+                <div key={index} className="border shadow rounded-md px-4 py-4 h-40 w-full mx-auto">
                   <div className="animate-pulse flex space-x-4 ">
                     <div className="rounded-full bg-slate-700 h-10 w-10"></div>
                     <div className="flex-1 space-y-6 py-1">
@@ -128,8 +133,8 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
                   </div>
                 </div>
               ))
-          : categories.map((info) => (
-              <Categories category={info} onClick={handleCodeChange} />
+          : categories.map((info, index) => (
+              <Categories key={index} category={info} onClick={handleCodeChange} />
             ))}
       </div>
       <div className="w-full">

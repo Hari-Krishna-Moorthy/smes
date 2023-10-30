@@ -35,10 +35,10 @@ export const getList = (id) => {
     {
       text: [
         "Supply new Shipbuilding and Conversions of Ship Air-Condition/Refrigeration.",
-        <span><b>Supply all kinds of Air </b> -Condition/Refrigeration Compressor(on exchange basis).</span>,
-        <span><b>Supply all kinds of Air </b> -Condition/Refrigeration Compressor Replacement Spare Parts.</span>,
-        <span><b>Supply Marine Air</b>-Conditioning Wall-Split Unit/Portable Spot Cooler.</span>,
-        <span><b>Repair all kinds of Air</b>-Condition/Refrigeration Compressor.</span>,
+        <span key={1}><b>Supply all kinds of Air </b> -Condition/Refrigeration Compressor(on exchange basis).</span>,
+        <span key={2}><b>Supply all kinds of Air </b> -Condition/Refrigeration Compressor Replacement Spare Parts.</span>,
+        <span key={3}><b>Supply Marine Air</b>-Conditioning Wall-Split Unit/Portable Spot Cooler.</span>,
+        <span key={4}><b>Repair all kinds of Air</b>-Condition/Refrigeration Compressor.</span>,
         "Rewind all kinds of Motors AC/DC.",
         "Fabrication of all kinds of Evaporator Coil, Condensers, Chill Water Coil Steam Heating Coils, Chiller Coils, Oil Cooling Coilsand Retubing etc.",
         "Anchorage repair and Voyage Repair.",
@@ -48,18 +48,18 @@ export const getList = (id) => {
     },
     {
       text: [
-        <span><b>Provisions</b> - Such as eatables: Vegetable, Meat, Dairy products, etc.</span>,
-        <b>Galley utensils.</b>,
-        <span><b> Rope </b> - Steel wire, Mooring rope, Wire rope, etc.</span>,
-        <span><b>Marine Paint & Equipments</b> - Clearing gun, Air duster, Paint spray guns, All marine paint, etc.</span>,
-        <span><b>Safety equipments & Protective gear</b> - Fire Extinguisher, Gas Detectors, Life Jackets, Safety Mask, Smoke Detectors, SOLAS Publication, Liferaft, Lifeboat & accessories, etc.</span>,
-        <span><b>Nautical equipments</b> - Charts, Marine radio, Navigation instruments, Merchant flags, etc.</span>,
-        <span><b>Medicine</b> - Equipment, Medical chests, Medical supplies, etc.</span>,
-        <span><b>Stationery</b> - Calculators, Computer & Accessories, Stamps, Files, Paper, etc.</span>,
-        <span><b>Hardware</b> - Racks, Holders, Locks, Cabinet hardware, Bathroom hardware, etc.</span>,
-        <span><b>Hand, Cutting, Electric & Mechanical tools </b>- Ladders, Cutters, Drillers, Cables, Lamps, Battery, Cargo lights, etc.</span>,
-        <span><b>Valves & Pipes </b>- Ball, Butterfly, Gate, Check, Globe valves, Aluminium, Steel, PVC pipes, etc.</span>,
-        <span><b>Welding equipment</b> - Electrodes, Rods, Gas Cylinders, Hoses, Gauges, etc.</span>,
+        <span key={1}><b>Provisions</b> - Such as eatables: Vegetable, Meat, Dairy products, etc.</span>,
+        <b key={12}>Galley utensils.</b>,
+        <span key={2}><b> Rope </b> - Steel wire, Mooring rope, Wire rope, etc.</span>,
+        <span key={3}><b>Marine Paint & Equipments</b> - Clearing gun, Air duster, Paint spray guns, All marine paint, etc.</span>,
+        <span key={4}><b>Safety equipments & Protective gear</b> - Fire Extinguisher, Gas Detectors, Life Jackets, Safety Mask, Smoke Detectors, SOLAS Publication, Liferaft, Lifeboat & accessories, etc.</span>,
+        <span key={5}><b>Nautical equipments</b> - Charts, Marine radio, Navigation instruments, Merchant flags, etc.</span>,
+        <span key={6}><b>Medicine</b> - Equipment, Medical chests, Medical supplies, etc.</span>,
+        <span key={7}><b>Stationery</b> - Calculators, Computer & Accessories, Stamps, Files, Paper, etc.</span>,
+        <span key={8}><b>Hardware</b> - Racks, Holders, Locks, Cabinet hardware, Bathroom hardware, etc.</span>,
+        <span key={9}><b>Hand, Cutting, Electric & Mechanical tools </b>- Ladders, Cutters, Drillers, Cables, Lamps, Battery, Cargo lights, etc.</span>,
+        <span key={10}><b>Valves & Pipes </b>- Ball, Butterfly, Gate, Check, Globe valves, Aluminium, Steel, PVC pipes, etc.</span>,
+        <span key={11}><b>Welding equipment</b> - Electrodes, Rods, Gas Cylinders, Hoses, Gauges, etc.</span>,
       ],
     },
     {
@@ -74,26 +74,26 @@ export const getList = (id) => {
     },
     {
       text: [
-        <span><b>For Purchasing:</b>
+        <span key={1}><b>For Purchasing:</b>
         <p className="pl-4 ml-4"> -  Spares usage and inventory. </p>
         <p className="pl-4 ml-4"> -  Spares future prediction. </p>
         <p className="pl-4 ml-4"> -  Stores supply and inventory. </p>
         <p className="pl-4 ml-4"> -  Automatic requisition generator. </p> </span>,
 
-        <span><b>For Technical:</b>
+        <span key={2}><b>For Technical:</b>
         <p className="pl-2 ml-2"> -  Docking and repair planning.</p>
         <p className="pl-2 ml-2"> -  Survey status & job reports.</p>
         <p className="pl-2 ml-2"> -  Integrated maintenance and class survey.</p>
         <p className="pl-2 ml-2"> -  Condition based maintenance.</p>
         <p className="pl-2 ml-2"> -  Alert and notifications.</p></span>,
 
-        <span><b>For Finance:</b>
+        <span key={3}><b>For Finance:</b>
         <p className="pl-2 ml-2"> -  Budget control.</p>
         <p className="pl-2 ml-2"> -  History of supply.</p>
         <p className="pl-2 ml-2"> -  Invoice connecting with the supply.</p>
         <p className="pl-2 ml-2"> -  Overdue alert.</p></span>,
 
-        <span><b>For Vessel:</b>
+        <span key={4}><b>For Vessel:</b>
         <p className="pl-2 ml-2"> -  Spares requisition.</p>
         <p className="pl-2 ml-2"> -  Planning.</p>
         <p className="pl-2 ml-2"> -  Rescheduling.</p>

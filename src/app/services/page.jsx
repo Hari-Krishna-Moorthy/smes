@@ -47,7 +47,7 @@ export default function Services() {
           <div className="text-black1  font-lexend text-xl font-semibold leading-9">
             {tabs[selectedId - 1].label}
           </div>
-          <div class="">
+          <div className="">
             <Image
               className="mx-[10%] p-[5%]"
               src={tabs[selectedId - 1].showImage}
