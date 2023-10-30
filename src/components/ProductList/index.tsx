@@ -18,7 +18,7 @@ const ProductList: React.FC<{
     const regex = new RegExp(filter.searchTerm, 'i')
     setProductsOnFilter(productsOnFilter.filter(({ name }) => regex.test(name)))
     console.log(productsOnFilter)
-  }, [filter.searchTerm])
+  }, [filter, productsOnFilter, setProductsOnFilter,  products])
 
   return (
     <div className="p-8 my-8 mx-4 h-full shadow-md shadow-[#C4CFD4] outline-1 border-[1px]  rounded-md">
