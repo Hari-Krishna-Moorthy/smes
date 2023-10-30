@@ -14,11 +14,11 @@ import { getList, servicesBodyText } from "./helpers";
 import Footer from "../../components/ui/footer/footer";
 export default function Services() {
   const tabs = [
-    { id: 1, logo: shipIcon, label: "Ship Repair and Services" },
-    { id: 2, logo: refrigerationIcon, label: "Refrigeration and Services" },
-    { id: 3, logo: shipStoreIcon, label: "Ship Store and Equipment" },
-    { id: 4, logo: crewIcon, label: "Crew Supply" },
-    { id: 5, logo: lapIcon, label: "IT Support" },
+    { id: 1, showImage: image.src, logo: shipIcon, label: "Ship Repair and Services" },
+    { id: 2, showImage: image.src, logo: refrigerationIcon, label: "Refrigeration and Services" },
+    { id: 3, showImage: image.src, logo: shipStoreIcon, label: "Ship Store and Equipment" },
+    { id: 4, showImage: image.src, logo: crewIcon, label: "Crew Supply" },
+    { id: 5, showImage: image.src, logo: lapIcon, label: "IT Support" },
   ];
   const [selectedId, setSelectedId] = useState(1);
 
@@ -27,7 +27,7 @@ export default function Services() {
       <div className="h-20">
         <Navbar activePage={"Services"} />
       </div>
-      <div className="flex items-center justify-between flex-wrap m-6 py-3 px-2 bg-[#DEE6FB]  dark:bg-[#192054] ">
+      <div className="flex items-center justify-between flex-wrap p-10 m-6 bg-[#DEE6FB]  dark:bg-[#192054] ">
         {tabs.map((item, index) => (
           <HeaderLogoWrapper
             logo={item.logo}
@@ -40,34 +40,37 @@ export default function Services() {
         ))}
       </div>
       <div className="m-12 p-6">
-        <p className="text-[#D4D7E8]">{servicesBodyText}</p>
+        <p className="text-[#8A9EA8] dark:text-[#D4D7E8]">{servicesBodyText}</p>
       </div>
-      <div className="rounded-lg p-8 bg-white dark:bg-dark shadow-services-content border mx-10 border-gray-200 my-10 flex-row flex">
-        <div className="min-w-max">
+      <div className="grid grid-cols-1 lg:grid-cols-2 rounded-lg p-8 bg-white dark:bg-dark shadow-services-content border mx-10 border-gray-200 my-10 flex-row flex">
+        <div className="">
           <div className="text-black1  font-lexend text-xl font-semibold leading-9">
             {tabs[selectedId - 1].label}
           </div>
-          <Image
-            className="m-10"
-            src={image.src}
-            alt="Image"
-            width={500}
-            height={500}
-          />
+          <div class="">
+            <Image
+              className="mx-[10%] p-[5%]"
+              src={tabs[selectedId - 1].showImage}
+              alt={tabs[selectedId - 1].label}
+              width={500}
+              height={500}
+            />
+          </div>
         </div>
-        <div className="max-h-[500px] overflow-y-auto ml-16 mt-2">
+        <div className="max-h-[500px] overflow-y-auto lg:ml-16 mt-2">
+          <ul className="list-disc list-inside">
           {getList(selectedId).text.map((item, index) => (
             <div
               className="font-lexend font-normal leading-6 text-base"
               key={index}
             >
-              <p className=" dark:text-white">
-                {item}
-              </p>
-              <br />
+              <li className=" dark:text-white">
+                {item} 
+              </li>
               <br />
             </div>
           ))}
+          </ul>
         </div>
       </div>
       <Footer />
