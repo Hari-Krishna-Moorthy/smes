@@ -2,6 +2,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import ImageSlider from '../../../components/ImageSlider'
+import Footer from '../../../components/ui/footer/footer'
+import Navbar from '../../../components/ui/navbar/navbar1'
 import ProductList from '../../../components/ProductList'
 import Product from '../../../interfaces/Product'
 import Category from '../../../interfaces/ProductCategory'
@@ -151,12 +153,22 @@ export default function Products({
   })
 
   return (
-    <div className="h-full bg-white text-black font-lexEnd container mx-auto px-4 py-4">
+    
+    <main className="light">
+      <div className="h-20">
+        {/* Navbar  */}
+          <Navbar activePage={"Products"} />
+      </div>
+      <div className="h-full bg-white text-black font-lexEnd container mx-auto px-4 py-4">
       {!countryMeta.code && <ProductsPromo />}
       <ProductCategories
         countryMeta={countryMeta}
         handleCodeChange={(code: string) => setCountryMeta({ code })}
       />
     </div>
+      <Footer />
+    </main>
+
+   
   )
 }
