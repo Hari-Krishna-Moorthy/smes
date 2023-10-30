@@ -60,8 +60,8 @@ const ProductList: React.FC<{
         </div>
       </div>
       <div className="py-8 grid grid-cols-3 gap-5">
-        {productsOnFilter.map((product) => (
-          <Product {...product} />
+        {productsOnFilter.map((product, index) => (
+          <Product key={index} {...product} />
         ))}
       </div>
     </div>

@@ -105,8 +105,8 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
         {!categories
           ? Array(4)
               .fill(0)
-              .map(() => (
-                <div className="border shadow rounded-md px-4 py-4 h-40 w-full mx-auto">
+              .map((_, index) => (
+                <div key={index} className="border shadow rounded-md px-4 py-4 h-40 w-full mx-auto">
                   <div className="animate-pulse flex space-x-4 ">
                     <div className="rounded-full bg-slate-700 h-10 w-10"></div>
                     <div className="flex-1 space-y-6 py-1">
@@ -126,8 +126,8 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
                   </div>
                 </div>
               ))
-          : categories.map((info) => (
-              <Categories category={info} onClick={handleCodeChange} />
+          : categories.map((info, index) => (
+              <Categories key={index} category={info} onClick={handleCodeChange} />
             ))}
       </div>
       <div className="w-full">
