@@ -2,39 +2,43 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { shipIcon } from "./svg/shipIcon";
-import { lapIcon } from "./svg/lapIcon";
-import { refrigerationIcon } from "./svg/refrigerationIcon";
-import { shipStoreIcon } from "./svg/shipStoreIcon";
-import { crewIcon } from "./svg/crewIcon";
-import Navbar from "../../components/ui/navbar/navbar1";
-import HeaderLogoWrapper from "../services/HeaderLogoWrapper";
-import image from "../../assets/logo/shipServices.png";
-import { getList, servicesBodyText } from "./helpers";
-import Footer from "../../components/ui/footer/footer";
-export default function Services() {
+import { shipIcon } from "../svg/shipIcon";
+import { lapIcon } from "../svg/lapIcon";
+import { refrigerationIcon } from "../svg/refrigerationIcon";
+import { shipStoreIcon } from "../svg/shipStoreIcon";
+import { crewIcon } from "../svg/crewIcon";
+import Navbar from "../../../components/ui/navbar/navbar1";
+import HeaderLogoWrapper from "../HeaderLogoWrapper";
+import image from "../../../assets/logo/shipServices.png";
+import { getList, servicesBodyText } from "../helpers";
+import Footer from "../../../components/ui/footer/footer";
+export default function Services({params,}) {
+  const serviceId = params.id;
   const tabs = [
     { id: 1, showImage: image.src, logo: shipIcon, label: "Ship Repair and Services" },
-    { id: 2, showImage: image.src, logo: refrigerationIcon, label: "Refrigeration and Services" },
+    { id: 2, showImage: image.src, logo: refrigerationIcon, label: "Refrigeration and Heating" },
     { id: 3, showImage: image.src, logo: shipStoreIcon, label: "Ship Store and Equipment" },
     { id: 4, showImage: image.src, logo: crewIcon, label: "Crew Supply" },
     { id: 5, showImage: image.src, logo: lapIcon, label: "IT Support" },
   ];
-  const [selectedId, setSelectedId] = useState(1);
+  console.log(serviceId);
+  const [selectedId, setSelectedId] = useState(
+    serviceId === undefined ? 1 : Number(serviceId[0])
+  );
 
   return (
     <>
       <div className="h-20">
         <Navbar activePage={"Services"} />
       </div>
-      <div className="flex items-center justify-between flex-wrap p-10 m-6 bg-[#DEE6FB]  dark:bg-[#192054] ">
+      <div className="flex justify-center items-center flex-wrap p-4 m-4 gap-4 bg-[#DEE6FB] dark:bg-[#192054]">
         {tabs.map((item, index) => (
           <HeaderLogoWrapper
             logo={item.logo}
             label={item.label}
             id={item.id}
             key={index}
-            isSelected={selectedId === item.id}
+            isSelected={selectedId === item.id }
             onSelect={(id) => setSelectedId(id)}
           />
         ))}
