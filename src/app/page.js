@@ -9,7 +9,7 @@ export default function Site() {
 
 
   const scrollHandler = () => {
-    window.window.scrollY > 800 ? setNavbarPage("About Us") : setNavbarPage("Home")
+    window.window.scrollY > 750 ? setNavbarPage("About Us") : setNavbarPage("Home")
   }
 
   useEffect(() => {
