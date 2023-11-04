@@ -1,4 +1,4 @@
-import { isEmpty, trim } from 'lodash'
+import { entries, groupBy, isEmpty, map, trim } from 'lodash'
 import React, { useEffect, useState } from 'react'
 import Product from '../../interfaces/Product'
 
@@ -20,6 +20,21 @@ const ProductList: React.FC<{
     console.log(productsOnFilter)
   }, [filter.searchTerm])
 
+  const renderProductsBasedOnHierarchy = (productsOnFilter: Array<Product>) =>
+    entries(groupBy(productsOnFilter, 'productCategory')).map(
+      ([hierarchyVal, products]) => {
+        return (
+          <div className="h-fit">
+            <h1 className="font-bold uppercase flex-1 text-neutral-700">
+              {hierarchyVal}
+            </h1>
+            {map(products, (p) => (
+              <Product {...p} key={p.name} />
+            ))}
+          </div>
+        )
+      }
+    )
   return (
     <div className="p-8 my-8 mx-4 h-full shadow-md shadow-[#C4CFD4] outline-1 border-[1px]  rounded-md">
       <div className="flex justify-between items-center  whitespace-nowrap">
@@ -59,10 +74,8 @@ const ProductList: React.FC<{
           />
         </div>
       </div>
-      <div className="py-8 grid grid-cols-3 gap-5">
-        {productsOnFilter.map((product) => (
-          <Product {...product} />
-        ))}
+      <div className="py-8 grid-container grid grid-cols-3 gap-4">
+        {renderProductsBasedOnHierarchy(productsOnFilter)}
       </div>
     </div>
   )
