@@ -2,18 +2,18 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import ImageSlider from '../../../components/ImageSlider'
-import Footer from '../../../components/ui/footer/footer'
-import Navbar from '../../../components/ui/navbar/navbar1'
 import ProductList from '../../../components/ProductList'
 import Product from '../../../interfaces/Product'
 import Category from '../../../interfaces/ProductCategory'
+import Navbar from '../../../components/ui/navbar/navbar1'
+import Footer from '../../../components/ui/footer/footer'
 import Image from 'next/image'
 
 const ProductsPromo = () => {
   return (
-    <div className="bg-[#F2F5FD] w-full px-12 pt-8 rounded-md flex justify-center align-middle">
+    <div className="bg-[#F2F5FD] dark:bg-secondary-dark dark:text-primary-light w-full px-12 pt-8 rounded-3xl flex justify-center align-middle">
       <div className="w-2/3 flex-1">
-        <h1 className="font-bold">Products</h1>
+        <h1 className="font-bold pb-4 text-xl">Products</h1>
         <p>
           Our Marine Spare & equipment department supply Genuine and OEM spares
           worldwide to Ship Owners, Ship Managers, Repairing Companies, Ship
@@ -42,8 +42,8 @@ const Categories: React.FC<{
   return (
     <div className="h-full w-full hover:scale-[101%] hover:shadow-lg shadow-sm transition-all transform-gpu ease-in-out duration-200 relative hs-[20.8125rem] ws-[27.375rem]  rounded-[0.5rem] overflow-hidden drop-shadow-md  bg-black">
       <Image
-      width={1000}
-      height={1000}
+        width={1000}
+        height={1000}
         src={thumbnailUrl}
         alt={name}
         className="w-full h-full object-cover opacity-70"
@@ -55,8 +55,8 @@ const Categories: React.FC<{
       >
         <div className="w-8 rounded-full overflow-hidden align-middle justify-center">
           <Image
-          width={1000}
-          height={1000}
+            width={1000}
+            height={1000}
             className="w-full object-cover h-full"
             src={flag.svg}
             alt={flag.alt}
@@ -98,7 +98,7 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
       )
       getProducts({ code: countryMeta.code }).then(setProducts)
     }
-  }, [countryMeta, setSelectedCategory, categories, ])
+  }, [countryMeta, setSelectedCategory, categories])
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -113,7 +113,10 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
           ? Array(4)
               .fill(0)
               .map((_, index) => (
-                <div key={index} className="border shadow rounded-md px-4 py-4 h-40 w-full mx-auto">
+                <div
+                  key={index}
+                  className="border shadow rounded-md px-4 py-4 h-40 w-full mx-auto"
+                >
                   <div className="animate-pulse flex space-x-4 ">
                     <div className="rounded-full bg-slate-700 h-10 w-10"></div>
                     <div className="flex-1 space-y-6 py-1">
@@ -134,7 +137,11 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
                 </div>
               ))
           : categories.map((info, index) => (
-              <Categories key={index} category={info} onClick={handleCodeChange} />
+              <Categories
+                key={index}
+                category={info}
+                onClick={handleCodeChange}
+              />
             ))}
       </div>
       <div className="w-full">
@@ -158,22 +165,19 @@ export default function Products({
   })
 
   return (
-    
     <main className="light">
       <div className="h-20">
         {/* Navbar  */}
-          <Navbar activePage={"Products"} />
+        <Navbar activePage={'Products'} />
       </div>
-      <div className="h-full bg-white text-black font-lexEnd container mx-auto px-4 py-4">
-      {!countryMeta.code && <ProductsPromo />}
-      <ProductCategories
-        countryMeta={countryMeta}
-        handleCodeChange={(code: string) => setCountryMeta({ code })}
-      />
-    </div>
+      <div className="h-full dark:bg-primary-dark bg-white text-black font-lexEnd container mx-auto px-4 py-4">
+        {!countryMeta.code && <ProductsPromo />}
+        <ProductCategories
+          countryMeta={countryMeta}
+          handleCodeChange={(code: string) => setCountryMeta({ code })}
+        />
+      </div>
       <Footer />
     </main>
-
-   
   )
 }
