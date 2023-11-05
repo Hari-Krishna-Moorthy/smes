@@ -16,7 +16,7 @@ export default function Certificate() {
       <div className={styles.certificateContainer}>
         <h2 className={styles.headerText}>Certificates</h2>
         <div className={styles.cardsLayout}>
-        {certificateList.map((item) => (
+          {certificateList.map((item) => (
             <div className={styles.cardContainer}>
               <div className={styles.card}>
                 <Image
@@ -29,7 +29,7 @@ export default function Certificate() {
                 <a className={styles.link}>{item.title}</a>
               </div>
             </div>
-        ))}
+          ))}
         </div>
       </div>
       <Footer />
