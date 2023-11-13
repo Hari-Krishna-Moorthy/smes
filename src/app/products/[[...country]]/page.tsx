@@ -99,12 +99,12 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
       setSelectedCategory(
         categories?.find(({ code }) => code == countryMeta.code)
       )
-      getProducts({ code: countryMeta.code }).then(setProducts)
     }
-  }, [countryMeta, setSelectedCategory, categories])
+  }, [countryMeta, categories])
 
-  const router = useRouter()
-
+  useEffect(() => {
+    getProducts({ code: countryMeta.code }).then(setProducts)
+  }, [countryMeta.code])
   return (
     <div className="container mx-auto px-4 py-8">
       <div
