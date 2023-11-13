@@ -1,13 +1,15 @@
 'use client'
+
 import axios from 'axios'
+import { head } from 'lodash'
+import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import ImageSlider from '../../../components/ImageSlider'
 import ProductList from '../../../components/ProductList'
+import Footer from '../../../components/ui/footer/footer'
+import Navbar from '../../../components/ui/navbar/navbar1'
 import Product from '../../../interfaces/Product'
 import Category from '../../../interfaces/ProductCategory'
-import Navbar from '../../../components/ui/navbar/navbar1'
-import Footer from '../../../components/ui/footer/footer'
-import Image from 'next/image'
 
 const ProductsPromo = () => {
   return (
@@ -153,16 +155,24 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
   )
 }
 
-export default function Products({
-  params,
-}: {
+const Products: React.FC<{
   params: { country: string[] | undefined }
-}) {
+}> = ({ params }) => {
   const [countryMeta, setCountryMeta] = useState<{
     code: string | undefined
   }>({
     code: undefined,
   })
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setLoading(true)
+
+    if (head(params.country)) {
+      setCountryMeta({ code: head(params.country) })
+      setLoading(false)
+    } else setLoading(false)
+  }, [])
 
   return (
     <main className="light">
@@ -171,13 +181,38 @@ export default function Products({
         <Navbar activePage={'Products'} />
       </div>
       <div className="h-full dark:bg-primary-dark bg-white text-black font-lexEnd container mx-auto px-4 py-4">
-        {!countryMeta.code && <ProductsPromo />}
-        <ProductCategories
-          countryMeta={countryMeta}
-          handleCodeChange={(code: string) => setCountryMeta({ code })}
-        />
+        {loading ? (
+          <div className="flex items-center justify-center w-full h-[95vh]">
+            <div className="flex justify-center items-center space-x-1 text-sm text-gray-700">
+              <svg
+                fill="none"
+                className="w-6 h-6 animate-spin"
+                viewBox="0 0 32 32"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
+              <div>Loading ...</div>
+            </div>
+          </div>
+        ) : (
+          <>
+            {!countryMeta.code && <ProductsPromo />}
+            <ProductCategories
+              countryMeta={countryMeta}
+              handleCodeChange={(code: string) => setCountryMeta({ code })}
+            />
+          </>
+        )}
       </div>
       <Footer />
     </main>
   )
 }
+
+export default Products
