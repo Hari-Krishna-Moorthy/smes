@@ -15,10 +15,10 @@ import Korea from "../../../assets/korea.png"
 const Ourproduct = () => {
 
   const products = [
-    {name: "European Spare Parts", link: "", image:Europe},
-    {name: "Japanese Spare Parts", link: "", image:Gear},
-    {name: "Korean Spare Parts", link: "", image:Korea},
-    {name: "Chinese Spare Parts", link: "", image:Gear},
+    {name: "European Spare Parts", link: "/products/DE", image:Europe},
+    {name: "Japanese Spare Parts", link: "/products/JP", image:Gear},
+    {name: "Korean Spare Parts", link: "/products/KR", image:Korea},
+    {name: "Chinese Spare Parts", link: "/products/CN", image:Gear},
   ] 
 
   return (
