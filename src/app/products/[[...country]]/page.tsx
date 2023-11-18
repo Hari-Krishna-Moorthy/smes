@@ -44,7 +44,10 @@ const Categories: React.FC<{
 }> = ({ onClick, category }) => {
   const { name, thumbnailUrl, flag, code } = category
   return (
-    <div className="h-full w-full hover:scale-[101%] hover:shadow-lg shadow-sm transition-all transform-gpu ease-in-out duration-200 relative hs-[20.8125rem] ws-[27.375rem]  rounded-[0.5rem] overflow-hidden drop-shadow-md  bg-black">
+    <div
+      className="h-full w-full hover:scale-[101%] hover:shadow-lg shadow-sm transition-all transform-gpu ease-in-out duration-200 relative hs-[20.8125rem] ws-[27.375rem]  rounded-[0.5rem] overflow-hidden drop-shadow-md  bg-black cursor-pointer"
+      onClick={() => onClick(code)}
+    >
       <Image
         width={1000}
         height={1000}
@@ -53,10 +56,7 @@ const Categories: React.FC<{
         className="w-full h-full object-cover opacity-70"
       />
 
-      <div
-        onClick={() => onClick(code)}
-        className="absolute flex justify-center  gap-1 text-center align-baseline text-xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-      >
+      <div className="absolute flex justify-center  gap-1 text-center align-baseline text-xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <div className="w-8 rounded-full overflow-hidden align-middle justify-center">
           <Image
             width={1000}
