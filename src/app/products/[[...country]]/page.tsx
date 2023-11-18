@@ -10,8 +10,9 @@ import Footer from '../../../components/ui/footer/footer'
 import Navbar from '../../../components/ui/navbar/navbar1'
 import Product from '../../../interfaces/Product'
 import Category from '../../../interfaces/ProductCategory'
-import { useRouter } from 'next/navigation'
 import { getProductCategories as getProductCategoriesStatic } from '../../services/getCategories'
+import { getProductViaCode } from '../../services/products'
+
 const ProductsPromo = () => {
   return (
     <div className="bg-[#F2F5FD] dark:bg-secondary-dark dark:text-primary-light w-full px-12 pt-8 rounded-3xl flex justify-center align-middle">
@@ -103,7 +104,8 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
   }, [countryMeta, categories])
 
   useEffect(() => {
-    getProducts({ code: countryMeta.code }).then(setProducts)
+    if (countryMeta.code)
+      setProducts(getProductViaCode({ code: countryMeta.code }).products)
   }, [countryMeta.code])
   return (
     <div className="container mx-auto px-4 py-8">
