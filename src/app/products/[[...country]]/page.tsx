@@ -10,8 +10,9 @@ import Footer from '../../../components/ui/footer/footer'
 import Navbar from '../../../components/ui/navbar/navbar1'
 import Product from '../../../interfaces/Product'
 import Category from '../../../interfaces/ProductCategory'
-import { useRouter } from 'next/navigation'
 import { getProductCategories as getProductCategoriesStatic } from '../../services/getCategories'
+import { getProductViaCode } from '../../services/products'
+
 const ProductsPromo = () => {
   return (
     <div className="bg-[#F2F5FD] dark:bg-secondary-dark dark:text-primary-light w-full px-12 pt-8 rounded-3xl flex justify-center align-middle">
@@ -43,23 +44,21 @@ const Categories: React.FC<{
 }> = ({ onClick, category }) => {
   const { name, thumbnailUrl, flag, code } = category
   return (
-    <div className="h-full w-full hover:scale-[101%] hover:shadow-lg shadow-sm transition-all transform-gpu ease-in-out duration-200 relative hs-[20.8125rem] ws-[27.375rem]  rounded-[0.5rem] overflow-hidden drop-shadow-md  bg-black">
+    <div
+      className="h-full w-full hover:scale-[101%] hover:shadow-lg shadow-sm transition-all transform-gpu ease-in-out duration-200 relative hs-[20.8125rem] ws-[27.375rem]  rounded-[0.5rem] overflow-hidden drop-shadow-md  bg-black cursor-pointer dark:bg-white"
+      onClick={() => onClick(code)}
+    >
       <Image
         width={1000}
         height={1000}
         src={thumbnailUrl}
         alt={name}
-        className="w-full h-full object-cover opacity-70"
+        className="w-full h-full object-cover opacity-70 dark:opacity-40"
       />
 
-      <div
-        onClick={() => onClick(code)}
-        className="absolute flex justify-center  gap-1 text-center align-baseline text-xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-      >
-        <div className="w-8 rounded-full overflow-hidden align-middle justify-center">
-          <Image
-            width={1000}
-            height={1000}
+      <div className="absolute flex justify-center text-center items-center gap-2 text-xl font-medium text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 dark:text-black">
+        <div className="w-10 h-10 rounded-full overflow-hidden align-middle justify-center items-center">
+          <img
             className="w-full object-cover h-full"
             src={flag.svg}
             alt={flag.alt}
@@ -103,8 +102,9 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
   }, [countryMeta.code, categories, setSelectedCategory])
 
   useEffect(() => {
-    getProducts({ code: countryMeta.code }).then(setProducts)
-  }, [countryMeta.code, setProducts])
+    if (countryMeta.code)
+      setProducts(getProductViaCode({ code: countryMeta.code }).products)
+  }, [countryMeta.code])
   return (
     <div className="container mx-auto px-4 py-8">
       <div
@@ -149,7 +149,7 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
               />
             ))}
       </div>
-      <div className="w-full">
+      <div className="w-full ">
         {selectedCategory && products && (
           <ProductList name={selectedCategory.name} products={products} />
         )}

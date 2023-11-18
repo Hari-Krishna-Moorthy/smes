@@ -1,11 +1,11 @@
 import { entries, groupBy, isEmpty, map, trim } from 'lodash'
 import React, { useEffect, useState } from 'react'
-import Product from '../../interfaces/Product'
+import ProductI from '../../interfaces/Product'
 
 const Product: React.FC<{ name: string }> = ({ name }) => <div>{name}</div>
 const ProductList: React.FC<{
   name: string
-  products: Product[]
+  products: ProductI[]
 }> = ({ name, products }) => {
   const [productsOnFilter, setProductsOnFilter] = useState(products)
   const [filter, setFilter] = useState({
@@ -20,7 +20,7 @@ const ProductList: React.FC<{
     console.log(productsOnFilter)
   }, [filter, productsOnFilter, setProductsOnFilter, products])
 
-  const renderProductsBasedOnHierarchy = (productsOnFilter: Array<Product>) =>
+  const renderProductsBasedOnHierarchy = (productsOnFilter: Array<ProductI>) =>
     entries(groupBy(productsOnFilter, 'productCategory')).map(
       ([hierarchyVal, products], index) => {
         return (
@@ -35,8 +35,9 @@ const ProductList: React.FC<{
         )
       }
     )
+
   return (
-    <div className="p-8 my-8 mx-4 h-full shadow-md shadow-[#C4CFD4] outline-1 border-[1px]  rounded-md">
+    <div className="p-8 my-8 dark:bg-white mx-4 h-full shadow-md shadow-[#C4CFD4] outline-1 border-[1px]  rounded-md">
       <div className="flex justify-between items-center  whitespace-nowrap">
         <h2 className="font-bold text-2xl flex-1">{name}</h2>
 
@@ -59,7 +60,7 @@ const ProductList: React.FC<{
           </div>
 
           <input
-            className="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
+            className="peer h-full w-full outline-none dark:bg-white text-sm text-gray-700 pr-2"
             type="text"
             id="search"
             placeholder="Search something.."
