@@ -92,7 +92,7 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
 
   useEffect(() => {
     if (!categories) setCategories(getProductCategoriesStatic())
-  }, [categories])
+  }, [categories, setCategories])
 
   useEffect(() => {
     if (countryMeta.code) {
@@ -100,11 +100,11 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
         categories?.find(({ code }) => code == countryMeta.code)
       )
     }
-  }, [countryMeta, categories])
+  }, [countryMeta.code, categories, setSelectedCategory])
 
   useEffect(() => {
     getProducts({ code: countryMeta.code }).then(setProducts)
-  }, [countryMeta.code])
+  }, [countryMeta.code, setProducts])
   return (
     <div className="container mx-auto px-4 py-8">
       <div
@@ -175,7 +175,7 @@ const Products: React.FC<{
       setCountryMeta({ code: head(params.country) })
       setLoading(false)
     } else setLoading(false)
-  }, [])
+  }, [setCountryMeta, params.country, setLoading])
 
   return (
     <main className="light">

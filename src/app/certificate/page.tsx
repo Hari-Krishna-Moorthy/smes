@@ -16,8 +16,8 @@ export default function Certificate() {
       <div className={styles.certificateContainer}>
         <h2 className={styles.headerText}>Certificates</h2>
         <div className={styles.cardsLayout}>
-          {certificateList.map((item) => (
-            <div className={styles.cardContainer}>
+          {certificateList.map((item, index) => (
+            <div key={index} className={styles.cardContainer}>
               <div className={styles.card}>
                 <Image
                   src={item.image}
