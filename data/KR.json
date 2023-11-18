@@ -1,11 +1,14 @@
 [
     {
-        "name": "some product Name"
+        "name": "Hokuetsu Industries",
+        "productCategory": "AIR COMPRESSORS"
     },
     {
-        "name": "some product Name"
+        "name": "Kobe Steel Ltd.",
+        "productCategory": "AIR COMPRESSORS"
     },
     {
-        "name": "some product Name"
+        "name": "Matsubara Iron Works, Ltd.",
+        "productCategory": "AIR COMPRESSORS"
     }
 ]
