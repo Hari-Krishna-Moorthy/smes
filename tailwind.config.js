@@ -7,17 +7,43 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: {
+          light: '#fff',
+          dark: '#192054',
+        },
+        secondary: {
+          light: '#F2F5FD',
+          dark: '#192054',
+        },
+      },
       backgroundColor: {
-        dark: '#333',  
-        light: '#fff', 
+        dark: '#333',
+        light: '#fff',
         light1: '#1C204F',
-        dark1: '#D4D7E8' 
+        dark1: '#D4D7E8',
+        primary: {
+          light: '#fff',
+          dark: 'rgb(18,18,18)',
+        },
+        secondary: {
+          light: '#F2F5FD',
+          dark: '#192054',
+        },
       },
       textColor: {
-        dark: '#fff',  
-        light: '#333', 
+        dark: '#fff',
+        light: '#333',
         light1: '#1C204F',
-        dark1: '#D4D7E8' 
+        dark1: '#D4D7E8',
+        primary: {
+          light: '#F2F5FD',
+          dark: '#192054',
+        },
+        secondary: {
+          light: '#fff',
+          dark: '#192054',
+        },
       },
       fontFamily: {
         display: 'Lexend',
@@ -31,13 +57,13 @@ module.exports = {
   },
 
   // font-name [fontSize, lineHeight]
-    fontSize: {
-      sm: ['14px', '21px'],
-      base: ['16px',  '24px'],
-      lg: ['18px', '27px'],
-      xl: ['24px', '36px'],
-      '2xl': ['32px', '48px'],
-      '3xl': ['48px', '72px'],
+  fontSize: {
+    sm: ['14px', '21px'],
+    base: ['16px', '24px'],
+    lg: ['18px', '27px'],
+    xl: ['24px', '36px'],
+    '2xl': ['32px', '48px'],
+    '3xl': ['48px', '72px'],
   },
   plugins: [],
   darkMode: 'class',

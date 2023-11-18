@@ -44,7 +44,7 @@ const Ourproduct = () => {
           slideShadows: false,
         }}
         pagination={{
-          clickable: true, 
+          clickable: true,
         }}
         modules={[EffectCoverflow, Pagination]}
         className="max-w-[100%] lg:max-w-[100%]">

@@ -1,19 +1,22 @@
 'use client'
+
 import axios from 'axios'
+import { head } from 'lodash'
+import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import ImageSlider from '../../../components/ImageSlider'
+import ProductList from '../../../components/ProductList'
 import Footer from '../../../components/ui/footer/footer'
 import Navbar from '../../../components/ui/navbar/navbar1'
-import ProductList from '../../../components/ProductList'
 import Product from '../../../interfaces/Product'
 import Category from '../../../interfaces/ProductCategory'
-import Image from 'next/image'
-
+import { useRouter } from 'next/navigation'
+import { getProductCategories as getProductCategoriesStatic } from '../../services/getCategories'
 const ProductsPromo = () => {
   return (
-    <div className="bg-[#F2F5FD] w-full px-12 pt-8 rounded-md flex justify-center align-middle">
+    <div className="bg-[#F2F5FD] dark:bg-secondary-dark dark:text-primary-light w-full px-12 pt-8 rounded-3xl flex justify-center align-middle">
       <div className="w-2/3 flex-1">
-        <h1 className="font-bold">Products</h1>
+        <h1 className="font-bold pb-4 text-xl">Products</h1>
         <p>
           Our Marine Spare & equipment department supply Genuine and OEM spares
           worldwide to Ship Owners, Ship Managers, Repairing Companies, Ship
@@ -42,8 +45,8 @@ const Categories: React.FC<{
   return (
     <div className="h-full w-full hover:scale-[101%] hover:shadow-lg shadow-sm transition-all transform-gpu ease-in-out duration-200 relative hs-[20.8125rem] ws-[27.375rem]  rounded-[0.5rem] overflow-hidden drop-shadow-md  bg-black">
       <Image
-      width={1000}
-      height={1000}
+        width={1000}
+        height={1000}
         src={thumbnailUrl}
         alt={name}
         className="w-full h-full object-cover opacity-70"
@@ -55,8 +58,8 @@ const Categories: React.FC<{
       >
         <div className="w-8 rounded-full overflow-hidden align-middle justify-center">
           <Image
-          width={1000}
-          height={1000}
+            width={1000}
+            height={1000}
             className="w-full object-cover h-full"
             src={flag.svg}
             alt={flag.alt}
@@ -88,7 +91,7 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
   const [products, setProducts] = useState<Product[]>()
 
   useEffect(() => {
-    if (!categories) getProductCategories().then(setCategories)
+    if (!categories) setCategories(getProductCategoriesStatic())
   }, [categories])
 
   useEffect(() => {
@@ -96,10 +99,12 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
       setSelectedCategory(
         categories?.find(({ code }) => code == countryMeta.code)
       )
-      getProducts({ code: countryMeta.code }).then(setProducts)
     }
-  }, [countryMeta, setSelectedCategory, categories, ])
+  }, [countryMeta, categories])
 
+  useEffect(() => {
+    getProducts({ code: countryMeta.code }).then(setProducts)
+  }, [countryMeta.code])
   return (
     <div className="container mx-auto px-4 py-8">
       <div
@@ -113,7 +118,10 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
           ? Array(4)
               .fill(0)
               .map((_, index) => (
-                <div key={index} className="border shadow rounded-md px-4 py-4 h-40 w-full mx-auto">
+                <div
+                  key={index}
+                  className="border shadow rounded-md px-4 py-4 h-40 w-full mx-auto"
+                >
                   <div className="animate-pulse flex space-x-4 ">
                     <div className="rounded-full bg-slate-700 h-10 w-10"></div>
                     <div className="flex-1 space-y-6 py-1">
@@ -134,7 +142,11 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
                 </div>
               ))
           : categories.map((info, index) => (
-              <Categories key={index} category={info} onClick={handleCodeChange} />
+              <Categories
+                key={index}
+                category={info}
+                onClick={handleCodeChange}
+              />
             ))}
       </div>
       <div className="w-full">
@@ -146,34 +158,64 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
   )
 }
 
-export default function Products({
-  params,
-}: {
+const Products: React.FC<{
   params: { country: string[] | undefined }
-}) {
+}> = ({ params }) => {
   const [countryMeta, setCountryMeta] = useState<{
     code: string | undefined
   }>({
     code: undefined,
   })
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setLoading(true)
+
+    if (head(params.country)) {
+      setCountryMeta({ code: head(params.country) })
+      setLoading(false)
+    } else setLoading(false)
+  }, [])
 
   return (
-    
     <main className="light">
       <div className="h-20">
         {/* Navbar  */}
-          <Navbar activePage={"Products"} />
+        <Navbar activePage={'Products'} />
       </div>
-      <div className="h-full bg-white text-black font-lexEnd container mx-auto px-4 py-4">
-      {!countryMeta.code && <ProductsPromo />}
-      <ProductCategories
-        countryMeta={countryMeta}
-        handleCodeChange={(code: string) => setCountryMeta({ code })}
-      />
-    </div>
+      <div className="h-full dark:bg-primary-dark bg-white text-black font-lexEnd container mx-auto px-4 py-4">
+        {loading ? (
+          <div className="flex items-center justify-center w-full h-[95vh]">
+            <div className="flex justify-center items-center space-x-1 text-sm text-gray-700">
+              <svg
+                fill="none"
+                className="w-6 h-6 animate-spin"
+                viewBox="0 0 32 32"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
+              <div>Loading ...</div>
+            </div>
+          </div>
+        ) : (
+          <>
+            {!countryMeta.code && <ProductsPromo />}
+            <ProductCategories
+              countryMeta={countryMeta}
+              handleCodeChange={(code: string) => setCountryMeta({ code })}
+            />
+          </>
+        )}
+      </div>
       <Footer />
     </main>
-
-   
   )
 }
+
+export default Products
