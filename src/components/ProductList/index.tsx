@@ -18,13 +18,13 @@ const ProductList: React.FC<{
     const regex = new RegExp(filter.searchTerm, 'i')
     setProductsOnFilter(productsOnFilter.filter(({ name }) => regex.test(name)))
     console.log(productsOnFilter)
-  }, [filter.searchTerm])
+  }, [filter, productsOnFilter, setProductsOnFilter, products])
 
   const renderProductsBasedOnHierarchy = (productsOnFilter: Array<Product>) =>
     entries(groupBy(productsOnFilter, 'productCategory')).map(
-      ([hierarchyVal, products]) => {
+      ([hierarchyVal, products], index) => {
         return (
-          <div className="h-fit">
+          <div className="h-fit" key={index}>
             <h1 className="font-bold uppercase flex-1 text-neutral-700">
               {hierarchyVal}
             </h1>
