@@ -18,8 +18,8 @@ const Home = () => {
     return (
         <div>
             <HomeCarosal  images={CarosalImages} captions={captions} />
-            <Services />
             <OurProduct/>
+            <Services />
             <Aboutus/>
         </div>
     );
