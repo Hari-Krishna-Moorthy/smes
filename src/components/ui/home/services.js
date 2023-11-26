@@ -12,7 +12,7 @@ const Services = () => {
 
     const services = [
         {
-            name: "Ship Spares & Equipments",
+            name: "Ship Spares & Products",
             link: "/products",
             image: productImg.src,
         },
@@ -68,7 +68,7 @@ const Services = () => {
                                                 <Image src={service?.image} alt={service?.name}
                                                     height={500}
                                                     width={400}
-                                                    className="w-full h-full object-cover" >
+                                                    className="w-full h-full rounded-xl" >
                                                 </Image>
                                             </span>
                                             {service?.name}
