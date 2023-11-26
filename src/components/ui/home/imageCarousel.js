@@ -27,15 +27,15 @@ const ImageCarousel2 = ({ images, captions }) => {
                 modules={[Zoom, Navigation, Pagination, Autoplay]}
             >
                 {
-                    images.map((_, index) =>
-                        <SwiperSlide>
-                            <div key={index} className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 text-white">
+                    images.map((item, index) =>
+                        <SwiperSlide key={index}>
+                            <div  className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 text-white">
                                 <p className="text-[24px] sm:text-[48px] lg:text-[64px] font-bold text-center" style={{ padding: "0px 20%" }}>
                                     {captions[index]}
                                 </p>
                             </div>
                             <div className="swiper-zoom-container">
-                                <Image alt={captions[index]} width={10000} height={10000} src={images[index]} />
+                                <Image alt={captions[index]} width={10000} height={10000} src={item} />
                             </div>
                         </SwiperSlide>
                     )
