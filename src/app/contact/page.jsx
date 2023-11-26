@@ -8,19 +8,19 @@ import Footer from "../../components/ui/footer/footer";
 import dynamic from 'next/dynamic';
 
 const MapContainer = dynamic(() => import('react-leaflet').then(module => module.MapContainer), {
-  ssr: false,
+    ssr: false,
 });
 
 const TileLayer = dynamic(() => import('react-leaflet').then(module => module.TileLayer), {
-  ssr: false,
+    ssr: false,
 });
 
 const Marker = dynamic(() => import('react-leaflet').then(module => module.Marker), {
-  ssr: false,
+    ssr: false,
 });
 
 const Tooltip = dynamic(() => import('react-leaflet').then(module => module.Tooltip), {
-  ssr: false,
+    ssr: false,
 });
 
 
@@ -35,9 +35,7 @@ const Contact = () => {
             address: {
                 address: {
                     "office_name": "Singapore Office",
-                    "line1": "Unit no.#07-05,",
-                    "line2": "Eco-tech@SunviewNo.1,Sunview Road,",
-                    "line3": "Singapore - 627615",
+                    "lines": ["Unit no.#07-05,", "Eco-tech@SunviewNo.1,", "Sunview Road,", "Singapore - 627615",]
                 },
                 phone: [
                     "+65 62808404",
@@ -59,9 +57,7 @@ const Contact = () => {
             address: {
                 address: {
                     "office_name": "Srilanka Office",
-                    "line1": "No.17 Annasi Wattha Road,",
-                    "line2": "Athurugiriya,",
-                    "line3": "Srilanka",
+                    "lines": ["No.17,", "Annasi Wattha Road,", "Athurugiriya,", "Srilanka",]
                 },
                 phone: [
                     "0094 115299588",
@@ -82,9 +78,7 @@ const Contact = () => {
             address: {
                 address: {
                     "office_name": "Indian Office",
-                    "line1": "No.24 8th Main Street,",
-                    "line2": "Pilana Garden 3rd Street,",
-                    "line3": "Bengalore - 560045",
+                    "lines": ["No.24,", "8th Main Street,", "Pilana Garden 3rd Street,", "Bengalore - 560045",]
                 },
                 phone: [
                     "+91 8197842585",
@@ -106,9 +100,7 @@ const Contact = () => {
             address: {
                 address: {
                     "office_name": "Uniten Arab Emirates Office",
-                    "line1": "New Arbash Building,",
-                    "line2": "Al Qasmiya Sharjah,",
-                    "line3": "Uniten Arab Emirates",
+                    "lines": ["New Arbash Building,", "Al Qasmiya Sharjah,", "Uniten Arab Emirates",]
                 },
                 phone: [
                     "+971 56 604 8287",
@@ -130,9 +122,7 @@ const Contact = () => {
             address: {
                 address: {
                     "office_name": "Japan Office",
-                    "line1": "Tokayama 391-213,",
-                    "line2": "Chiba Ken, Narita shi,",
-                    "line3": "Japan 2870233",
+                    "lines": ["Tokayama 391-213,", "Chiba Ken,", "Narita shi,", "Japan 2870233"]
                 },
                 phone: [
                     "+81 476 857 483",
@@ -153,9 +143,7 @@ const Contact = () => {
             address: {
                 address: {
                     "office_name": "USA Office",
-                    "line1": "2304 St John Bluff Road South,",
-                    "line2": "#4206 Jacksonville,",
-                    "line3": "Florida 32246, USA",
+                    "lines": ["2304,", "St John Bluff Road South,", "#4206 Jacksonville,", "Florida 32246, USA",]
                 },
                 phone: [
                     "+1 904 304 9194",
@@ -187,7 +175,7 @@ const Contact = () => {
             </div>
 
             <div id="map" className="mx-10 flex flex-col md:flex-row">
-                <div className="w-full md:w-4/6" style={{ maxWidth: "100%", maxHeight: "675px" }}>
+                <div className="w-full md:w-4/6" style={{ maxWidth: "100%", maxHeight: "475px" }}>
                     <MapContainer zoom={zoomLevel} center={CENTRAL_LOCATION} className="grayscale-map">
                         <TileLayer
                             url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
@@ -206,12 +194,12 @@ const Contact = () => {
                             ))}
                     </MapContainer>
                 </div>
-                <div className="w-full md:w-2/6 text-black" style={{ backgroundColor: "#DEE6FB", minHeight: "675px" }}>
+                <div className="w-full md:w-2/6 text-black " style={{ backgroundColor: "#DEE6FB", maxHeight: "475px" }}>
                     {/* Office Name with google map link */}
 
                     <div className="m-4 grid grid-cols-4 gap-4" style={{ backgroundColor: "#DEE6FB" }}>
                         <div className="col-span-3">
-                            <p className="text-center text-xl font-bold"> {SidebarContent?.address?.address?.office_name}</p>
+                            <p className="text-center text-3xl font-bold"> {SidebarContent?.address?.address?.office_name}</p>
                         </div>
                         <div>
                             <a target="_blank" href={SidebarContent?.address?.gmap}>
@@ -223,54 +211,38 @@ const Contact = () => {
                     </div>
 
                     {/* Office Address */}
-                    <div className="m-8 px-8 grid grid-row-4 " >
+                    <div className="my-8 mx-4 px-4 grid grid-row-4 " style={{ backgroundColor: "#DEE6FB" }}>
                         <div >
-                            <p className="text-lg font-semibold"> Address: </p>
+                            <p className="text-xl font-semibold"> Address: </p>
                         </div>
-                        <div>
-                            <p> {SidebarContent?.address?.address?.line1} </p>
-                        </div>
-                        <div>
-                            <p> {SidebarContent?.address?.address?.line2} </p>
-                        </div>
-                        <div>
-                            <p> {SidebarContent?.address?.address?.line3} </p>
-                        </div>
+                        {
+                            SidebarContent?.address?.address?.lines.map((item, index) =>
+                                <p className="text-mx" key={index} > {item} </p>
+                            )
+                        }
                     </div>
 
                     {/* Office Phone */}
-                    <div className="m-8 px-8 grid grid-row-4 " >
+                    <div className="my-8 mx-4 px-4 grid grid-row-4 " >
                         <div >
-                            <p className="text-lg font-semibold"> Phone: </p>
+                            <p className="text-xl font-semibold"> Phone: </p>
                         </div>
                         {SidebarContent?.address?.phone.map((phone_number, index) =>
                             <div key={index}>
-                                <p>{phone_number}</p>
-                            </div>
-                        )}
-                    </div>
-
-                    {/* Office Fax */}
-                    <div className="m-8 px-8 grid grid-row-4 " >
-                        <div >
-                            <p className="text-lg font-semibold"> Fax: </p>
-                        </div>
-                        {SidebarContent?.address?.fax.map((fax_number, index) =>
-                            <div key={index}>
-                                <p>{fax_number}</p>
+                                <p className="text-md">{phone_number}</p>
                             </div>
                         )}
                     </div>
 
 
                     {/* Office Mail */}
-                    <div className="m-8 px-8 grid grid-row-4 " >
+                    <div className="my-8 mx-4 px-4  grid grid-row-4 " >
                         <div >
-                            <p className="text-lg font-semibold"> Mail: </p>
+                            <p className="text-xl font-semibold"> Mail: </p>
                         </div>
                         {SidebarContent?.address?.mails.map((mail_id, index) =>
                             <div key={index}>
-                                <p>{mail_id}</p>
+                                <p className="text-md">{mail_id}</p>
                             </div>
                         )}
                     </div>
