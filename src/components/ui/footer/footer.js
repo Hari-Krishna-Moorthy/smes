@@ -91,12 +91,12 @@ const Footer = () => {
                             Policies
                         </h6>
                         <p className="mb-4">
-                            <a href="#!" className="text-neutral-200 text-sm"
+                            <a href="/terms" className="text-neutral-200 text-sm"
                             >Privacy Policy</a
                             >
                         </p>
                         <p className="">
-                            <a href="#!" className="text-neutral-200 text-sm"
+                            <a href="/terms" className="text-neutral-200 text-sm"
                             >Terms of Use</a
                             >
                         </p>
