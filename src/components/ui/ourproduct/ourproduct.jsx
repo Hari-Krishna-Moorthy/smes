@@ -8,17 +8,36 @@ import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import 'swiper/css/effect-coverflow';
 import { Pagination, EffectCoverflow, Autoplay } from "swiper/modules";
-import Gear from "../../../assets/gear.png"
 import Europe from "../../../assets/europe.png"
 import Korea from "../../../assets/korea.png"
 
 const Ourproduct = () => {
 
   const products = [
-    { name: "European Spare Parts", link: "", image: Europe },
-    { name: "Japanese Spare Parts", link: "", image: Gear },
-    { name: "Korean Spare Parts", link: "", image: Korea },
-    { name: "Chinese Spare Parts", link: "", image: Gear },
+    {
+      name: "Japanese Spare Parts",
+      link: "/products/JP",
+      image: '/categories/Rectangle 24874.png',
+      countrySvg: 'japan.svg'
+    },
+    {
+      name: "European Spare Parts",
+      link: "/products/DE",
+      image: '/categories/Rectangle 24876.png',
+      countrySvg: 'europe.svg'
+    },
+    {
+      name: "Korean Spare Parts",
+      link: "/products/KR",
+      image: '/categories/Rectangle 24875.png',
+      countrySvg: 'korea.svg'
+    },
+    {
+      name: "Chinese Spare Parts",
+      link: "/products/CN",
+      image: '/categories/Rectangle 24877.png',
+      countrySvg: 'china.svg'
+    },
   ]
 
   return (
@@ -44,9 +63,9 @@ const Ourproduct = () => {
           slideShadows: false,
         }}
         autoplay={{
-          delay: 2500,
+          delay: 4000,
           disableOnInteraction: false,
-      }}
+        }}
         pagination={{
           clickable: true,
         }}
@@ -61,9 +80,12 @@ const Ourproduct = () => {
                   <div className="max-w-sm p-3 bg-light dark:bg-dark1 border border-light1 rounded-lg  text-center">
                     <Image
                       src={product.image}
-                      alt=""
+                      alt={product.name}
                       className='mb-4'
+                      width={1000}
+                      height={1000}
                     />
+                    <img className="cursor-pointer absolute left-6 top-6" src={product.countrySvg} width={55} />
                     <a href={product.link}>
                       <h5 className="text-xl mt-5 mb-7 text-certi font-semibold tracking-tight text-light1 dark:text-light1 "> {product.name} </h5>
                     </a>
