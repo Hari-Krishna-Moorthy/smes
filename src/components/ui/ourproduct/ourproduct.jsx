@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import 'swiper/css/effect-coverflow';
-import { FreeMode, Pagination, EffectCoverflow, Navigation } from "swiper/modules";
+import { Pagination, EffectCoverflow, Autoplay } from "swiper/modules";
 import Gear from "../../../assets/gear.png"
 import Europe from "../../../assets/europe.png"
 import Korea from "../../../assets/korea.png"
@@ -43,10 +43,14 @@ const Ourproduct = () => {
           modifier: 1,
           slideShadows: false,
         }}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+      }}
         pagination={{
           clickable: true,
         }}
-        modules={[EffectCoverflow, Pagination]}
+        modules={[EffectCoverflow, Autoplay, Pagination]}
         className="max-w-[100%] lg:max-w-[100%]">
 
         {
