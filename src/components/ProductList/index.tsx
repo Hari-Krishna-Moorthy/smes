@@ -1,6 +1,19 @@
 import { entries, groupBy, isEmpty, map, trim } from 'lodash'
 import React, { useEffect, useState } from 'react'
 import ProductI from '../../interfaces/Product'
+import HourGlass from '../../assets/products/hourglass.gif'
+
+const EmptyResult = () => {
+  return (
+    <div className="m-auto text-center w-[100%] p-12 flex-row justify-center align-middle">
+      <div className="w-12 m-auto">
+        <img src={HourGlass.src} alt="" />
+      </div>
+      <p className="text-lg text-gray-700">Oops! No products found.</p>
+      <p className="text-sm text-gray-500">Try searching for something else.</p>
+    </div>
+  )
+}
 
 const Product: React.FC<{ name: string }> = ({ name }) => <div>{name}</div>
 const ProductList: React.FC<{
@@ -13,6 +26,21 @@ const ProductList: React.FC<{
   })
 
   useEffect(() => {
+    setProductsOnFilter(products)
+  }, [products])
+
+  useEffect(() => {
+    setFilter({
+      searchTerm: '',
+    })
+    return () => {
+      console.log('dead state')
+      setFilter({
+        searchTerm: '',
+      })
+    }
+  }, [name])
+  useEffect(() => {
     if (isEmpty(trim(filter.searchTerm))) return setProductsOnFilter(products)
 
     const regex = new RegExp(filter.searchTerm, 'i')
@@ -20,8 +48,10 @@ const ProductList: React.FC<{
     console.log(productsOnFilter)
   }, [filter.searchTerm])
 
-  const renderProductsBasedOnHierarchy = (productsOnFilter: Array<ProductI>) =>
-    entries(groupBy(productsOnFilter, 'productCategory')).map(
+  const renderProductsBasedOnHierarchy = (
+    productsOnFilter: Array<ProductI>
+  ) => {
+    return entries(groupBy(productsOnFilter, 'productCategory')).map(
       ([hierarchyVal, products]) => {
         return (
           <div className="h-fit">
@@ -35,6 +65,7 @@ const ProductList: React.FC<{
         )
       }
     )
+  }
 
   return (
     <div className="p-8 my-8 dark:bg-white mx-4 h-full shadow-md shadow-[#C4CFD4] outline-1 border-[1px]  rounded-md">
@@ -75,9 +106,13 @@ const ProductList: React.FC<{
           />
         </div>
       </div>
-      <div className="py-8 grid-container grid grid-cols-3 gap-4">
-        {renderProductsBasedOnHierarchy(productsOnFilter)}
-      </div>
+      {productsOnFilter.length === 0 ? (
+        <EmptyResult />
+      ) : (
+        <div className="py-8 grid-container grid grid-cols-3 gap-4">
+          {renderProductsBasedOnHierarchy(productsOnFilter)}
+        </div>
+      )}
     </div>
   )
 }
