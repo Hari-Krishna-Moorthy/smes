@@ -52,7 +52,7 @@ const ProductList: React.FC<{
     productsOnFilter: Array<ProductI>
   ) => {
     return entries(groupBy(productsOnFilter, 'productCategory')).map(
-      ([hierarchyVal, products]) => {
+      ([hierarchyVal, products], index) => {
         return (
           <div className="h-fit" key={index}>
             <h1 className="font-bold uppercase flex-1 text-neutral-700">
