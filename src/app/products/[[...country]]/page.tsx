@@ -99,10 +99,11 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
         categories?.find(({ code }) => code == countryMeta.code)
       )
     }
-  }, [countryMeta])
+  }, [countryMeta, categories])
 
   useEffect(() => {
-    setProducts(getProductViaCode({ code: countryMeta.code }).products)
+    if (countryMeta.code)
+      setProducts(getProductViaCode({ code: countryMeta.code }).products)
   }, [countryMeta.code])
   return (
     <div className="container mx-auto px-4 py-8">
