@@ -41,11 +41,15 @@ const ProductsPromo = () => {
 const Categories: React.FC<{
   category: Category
   onClick: (code: string) => void
-}> = ({ onClick, category }) => {
+  current: string
+}> = ({ onClick, category, current }) => {
   const { name, thumbnailUrl, flag, code } = category
+
   return (
     <div
-      className="h-full w-full hover:scale-[101%] hover:shadow-lg shadow-sm transition-all transform-gpu ease-in-out duration-200 relative hs-[20.8125rem] ws-[27.375rem]  rounded-[0.5rem] overflow-hidden drop-shadow-md  bg-black cursor-pointer dark:bg-white"
+      className={`h-full ${
+        code === current ? 'scale-[103%]' : ''
+      } w-full hover:scale-[101%] hover:shadow-lg shadow-sm transition-all transform-gpu ease-in-out duration-200 relative hs-[20.8125rem] ws-[27.375rem]  rounded-[0.5rem] overflow-hidden drop-shadow-md  bg-black cursor-pointer dark:bg-white`}
       onClick={() => onClick(code)}
     >
       <Image
@@ -53,7 +57,7 @@ const Categories: React.FC<{
         height={1000}
         src={thumbnailUrl}
         alt={name}
-        className="w-full h-full object-cover opacity-70 dark:opacity-40"
+        className="w-full sm:max-h-36  h-full object-cover opacity-70 dark:opacity-40"
       />
 
       <div className="absolute flex justify-center text-center items-center gap-2 text-xl font-medium text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 dark:text-black">
@@ -110,7 +114,7 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
       <div
         className={`${
           countryMeta?.code
-            ? 'flex  gap-3 h-[9.75rem]'
+            ? 'flex  gap-3 min-h-[9.75rem] flex-wrap  md:flex-nowrap max-h-max'
             : 'w-2/4 grid grid-cols-2 justify-center align-middle gap-3'
         } mx-auto`}
       >
@@ -144,6 +148,7 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
           : categories.map((info, index) => (
               <Categories
                 key={index}
+                current={countryMeta.code}
                 category={info}
                 onClick={handleCodeChange}
               />
