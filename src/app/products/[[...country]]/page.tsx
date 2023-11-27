@@ -48,8 +48,8 @@ const Categories: React.FC<{
   return (
     <div
       className={`h-full ${
-        code === current ? 'scale-[103%]' : ''
-      } w-full hover:scale-[101%] hover:shadow-lg shadow-sm transition-all transform-gpu ease-in-out duration-200 relative hs-[20.8125rem] ws-[27.375rem]  rounded-[0.5rem] overflow-hidden drop-shadow-md  bg-black cursor-pointer dark:bg-white`}
+        code === current ? 'scale-[103%] border' : 'hover:scale-[101%]'
+      } w-full hover:shadow-lg shadow-sm transition-all transform-gpu ease-in-out duration-200 relative hs-[20.8125rem] ws-[27.375rem]  rounded-[0.5rem] overflow-hidden drop-shadow-md  bg-black cursor-pointer dark:bg-white`}
       onClick={() => onClick(code)}
     >
       <Image
