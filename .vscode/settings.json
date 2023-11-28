@@ -3,5 +3,8 @@
     "editor.formatOnSave": true,
     "editor.tabCompletion": "on",
     "editor.snippetSuggestions": "top",
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
   }
   
