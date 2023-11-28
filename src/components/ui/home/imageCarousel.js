@@ -1,49 +1,48 @@
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Zoom, Autoplay, Navigation, Pagination } from "swiper/modules";
+
+import 'swiper/css';
+import 'swiper/css/zoom';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import Image from 'next/image';
-import React, { useState } from 'react';
 
-const ImageCarousel = ({ images, captions }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const handleNext = () => {
-    setActiveIndex((activeIndex + 1) % images.length);
-  };
-
-  const handlePrev = () => {
-    setActiveIndex((activeIndex - 1 + images.length) % images.length);
-  };
-
-  return (
-    <div className="relative">
-      <div className="w-full relative overflow-x-hidden" >
-        <div className="flex transition-transform duration-300 ease-in-out transform translate-x-full" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
-          {images.map((image, index) => (
-            <div key={index} className="w-full flex-shrink-0 relative">
-              <Image src={image} 
-              width={1000}
-              height={1000}
-              alt={`Image ${index + 1}`} className="w-full h-full" />
-              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white">
-                <h1 style={{ padding: "0px 35%" }} className="text-3xl md:text-xl font-bold text-center">{captions[index]}</h1>
-              </div>
-            </div>
-          ))}
+const ImageCarousel2 = ({ images, captions }) => {
+    return (
+        <div >
+            <Swiper
+                style={{
+                    '--swiper-navigation-color': '#000',
+                    '--swiper-pagination-color': '#000',
+                }}
+                zoom={true}
+                navigation={true}
+                parallax={true}
+                autoplay={{
+                    delay: 6000,
+                    disableOnInteraction: false,
+                }}
+                loop={true}
+                modules={[Zoom, Navigation, Pagination, Autoplay]}
+            >
+                {
+                    images.map((item, index) =>
+                        <SwiperSlide key={index}>
+                            <div  className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 text-white">
+                                <p className="text-[24px] sm:text-[48px] lg:text-[64px] font-bold text-center" style={{ padding: "0px 20%" }}>
+                                    {captions[index]}
+                                </p>
+                            </div>
+                            <div className="swiper-zoom-container">
+                                <Image alt={captions[index]} width={10000} height={10000} src={item} />
+                            </div>
+                        </SwiperSlide>
+                    )
+                }
+            </Swiper>
         </div>
-      </div>
-      <button
-        className="absolute top-1/2 transform -translate-y-1/2 left-2 text-white text-2xl hover:text-gray-300 focus:outline-none"
-        onClick={handlePrev}
-      >
-        &#9664;
-      </button>
-      <button
-        className="absolute top-1/2 transform -translate-y-1/2 right-2 text-white text-2xl hover:text-gray-300 focus:outline-none"
-        onClick={handleNext}
-      >
-        &#9654;
-      </button>
-    </div>
+    );
+}
 
-  );
-};
-
-export default ImageCarousel;
+export default ImageCarousel2;
