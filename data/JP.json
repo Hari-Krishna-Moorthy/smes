@@ -1,11 +1,110 @@
 [
     {
-        "name": "some product Name"
+        "name": "Hokuetsu Industries",
+        "productCategory": "AIR COMPRESSORS"
     },
     {
-        "name": "some product Name"
+        "name": "Kobe Steel Ltd.",
+        "productCategory": "AIR COMPRESSORS"
     },
     {
-        "name": "some product Name"
+        "name": "Matsubara Iron Works, Ltd.",
+        "productCategory": "AIR COMPRESSORS"
+    },
+    {
+        "name": "Hokuetsu Industries",
+        "productCategory": "new cat"
+    },
+    {
+        "name": "Kobe Steel Ltd.",
+        "productCategory": "new cat"
+    },
+    {
+        "name": "Matsubara Iron Works, Ltd.",
+        "productCategory": "new cat"
+    },
+    {
+        "name": "Hokuetsu Industries",
+        "productCategory": "new cat"
+    },
+    {
+        "name": "Kobe Steel Ltd.",
+        "productCategory": "new"
+    },
+    {
+        "name": "Matsubara Iron Works, Ltd.",
+        "productCategory": "new"
+    },
+    {
+        "name": "Hokuetsu Industries",
+        "productCategory": "new"
+    },
+    {
+        "name": "Kobe Steel Ltd.",
+        "productCategory": "new"
+    },
+    {
+        "name": "Matsubara Iron Works, Ltd.",
+        "productCategory": "new"
+    },
+    {
+        "name": "Hokuetsu Industries",
+        "productCategory": "new"
+    },
+    {
+        "name": "Kobe Steel Ltd.",
+        "productCategory": "new"
+    },
+    {
+        "name": "Matsubara Iron Works, Ltd.",
+        "productCategory": "new"
+    },
+    {
+        "name": "Matsubara Iron Works, Ltd.",
+        "productCategory": "new new "
+    },
+    {
+        "name": "Hokuetsu Industries",
+        "productCategory": "new new"
+    },
+    {
+        "name": "Kobe Steel Ltd.",
+        "productCategory": "new new"
+    },
+    {
+        "name": "Matsubara Iron Works, Ltd.",
+        "productCategory": "new new 1"
+    },
+    {
+        "name": "Matsubara Iron Works, Ltd.",
+        "productCategory": "new new 1 "
+    },
+    {
+        "name": "Hokuetsu Industries",
+        "productCategory": "new new 1 "
+    },
+    {
+        "name": "Kobe Steel Ltd.",
+        "productCategory": "new new 1 "
+    },
+    {
+        "name": "Matsubara Iron Works, Ltd.",
+        "productCategory": "new new 1 "
+    },
+    {
+        "name": "Matsubara Iron Works, Ltd.",
+        "productCategory": "new new 3"
+    },
+    {
+        "name": "Hokuetsu Industries",
+        "productCategory": "new new 3"
+    },
+    {
+        "name": "Kobe Steel Ltd.",
+        "productCategory": "new new 3"
+    },
+    {
+        "name": "Matsubara Iron Works, Ltd.",
+        "productCategory": "new new 3"
     }
 ]

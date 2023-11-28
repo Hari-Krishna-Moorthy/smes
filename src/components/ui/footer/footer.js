@@ -9,7 +9,6 @@ const Footer = () => {
                 backgroundColor: "#1C204F"
             }}
             className="flex flex-col text-white w-full">
-
             <div
                 className="flex  border-b-2 border-grey-1 p-6 lg:justify-between">
                 <div className="items-start ">
@@ -27,37 +26,6 @@ const Footer = () => {
 
             <div className=" mx-6 py-10 text-center md:text-left ">
                 <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-5  ">
-                    <div className="">
-                        <h6
-                            className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
-                            Services
-                        </h6>
-                        <p className="mb-4">
-                            <a href="#!" className="text-neutral-200 text-sm"
-                            >Ship Repair and Services</a
-                            >
-                        </p>
-                        <p className="mb-4">
-                            <a href="#!" className="text-neutral-200 text-sm"
-                            >Refrigeration and Heating</a
-                            >
-                        </p>
-                        <p className="mb-4">
-                            <a href="#!" className="text-neutral-200 text-sm"
-                            >Ship Store And Equipment</a
-                            >
-                        </p>
-                        <p className="mb-4">
-                            <a href="#!" className="text-neutral-200 text-sm"
-                            >Crew Supply</a
-                            >
-                        </p>
-                        <p className="mb-4">
-                            <a href="#!" className="text-neutral-200 text-sm"
-                            >IT Support</a
-                            >
-                        </p>
-                    </div>
                     <div className="">
                         <h6
                             className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
@@ -84,18 +52,51 @@ const Footer = () => {
                             >
                         </p>
                     </div>
+
+                    <div className="">
+                        <h6
+                            className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
+                            Services
+                        </h6>
+                        <p className="mb-4">
+                            <a href="/services/1" className="text-neutral-200 text-sm"
+                            >Ship Repair and Services</a
+                            >
+                        </p>
+                        <p className="mb-4">
+                            <a href="/services/2" className="text-neutral-200 text-sm"
+                            >Refrigeration and Heating</a
+                            >
+                        </p>
+                        <p className="mb-4">
+                            <a href="/services/3" className="text-neutral-200 text-sm"
+                            >Ship Store And Equipment</a
+                            >
+                        </p>
+                        <p className="mb-4">
+                            <a href="/services/4" className="text-neutral-200 text-sm"
+                            >Crew Supply</a
+                            >
+                        </p>
+                        <p className="mb-4">
+                            <a href="/services/5" className="text-neutral-200 text-sm"
+                            >IT Support</a
+                            >
+                        </p>
+                    </div>
+
                     <div className="">
                         <h6
                             className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
                             Policies
                         </h6>
                         <p className="mb-4">
-                            <a href="#!" className="text-neutral-200 text-sm"
+                            <a href="/terms" className="text-neutral-200 text-sm"
                             >Privacy Policy</a
                             >
                         </p>
                         <p className="">
-                            <a href="#!" className="text-neutral-200 text-sm"
+                            <a href="/terms" className="text-neutral-200 text-sm"
                             >Terms of Use</a
                             >
                         </p>
@@ -154,6 +155,19 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
+            <div className="text-sm p-6 border-t-2 border-grey-1">
+                <div className="flex justify-between items-center flex-col sm:flex-row">
+                    <span className="text-left sm:order-1">
+                        Created by <a className="text-cyan-600 text-bold" target="_blank" href="https://www.innovationgeeks.in"> INNOVATION GEEKS </a> © | All Rights Reserved
+                    </span>
+                    <span className="flex space-x-4 sm:order-2">
+                        <Socials name="instagram" link="https://github.com/INNOVATION-GEEKS-IN" />
+                        <Socials name="linkedin" link="https://www.linkedin.com/company/innovation-geeks-private-ltd" />
+                        <Socials name="github" link="https://github.com/INNOVATION-GEEKS-IN" />
+                    </span>
+                </div>
+            </div>
+
         </footer>
     );
 }
