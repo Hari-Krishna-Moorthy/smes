@@ -22,7 +22,7 @@ const Ourproduct = () => {
   ]
 
   return (
-    <div className="flex items-center justify-center flex-col h-[990px] bg-dark1 dark:bg-light1 mb-20">
+    <div id="aboutus" className="flex items-center justify-center flex-col h-[990px] bg-dark1 dark:bg-light1 mb-20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 ">
         <h2 className=" mb-8 text-5xl text-light1  text-center font-bold dark:text-dark1 align-middle">Our Products</h2>
         <p className="mt-7 mb-[80px] text-lg text-light1  text-center font-medium dark:text-dark1 align-middle">Our Marine Spare & Equipment

@@ -38,7 +38,8 @@ const Contact = () => {
                     "lines": ["No. 10,", "Penjuru Road,",  "Singapore - 609124.",]
                 },
                 phone: [
-                    "+65 62808404",
+                    <p key={1}>+65 62808404</p>,
+                    <p key={2}><b>24/7:</b> +65 82986792</p>
                 ],
                 fax: [
                     "+65 62808834"
@@ -175,7 +176,7 @@ const Contact = () => {
             </div>
 
             <div id="map" className="mx-10 flex flex-col md:flex-row">
-                <div className="w-full md:w-4/6" style={{ maxWidth: "100%", maxHeight: "475px" }}>
+                <div className="w-full md:w-4/6" style={{ maxWidth: "100%", maxHeight: "575px" }}>
                     <MapContainer zoom={zoomLevel} center={CENTRAL_LOCATION} className="grayscale-map">
                         <TileLayer
                             url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
@@ -194,7 +195,7 @@ const Contact = () => {
                             ))}
                     </MapContainer>
                 </div>
-                <div className="w-full md:w-2/6 text-black " style={{ backgroundColor: "#DEE6FB", maxHeight: "475px" }}>
+                <div className="w-full md:w-2/6 text-black " style={{ backgroundColor: "#DEE6FB", maxHeight: "575px" }}>
                     {/* Office Name with google map link */}
 
                     <div className="m-4 grid grid-cols-4 gap-4" style={{ backgroundColor: "#DEE6FB" }}>
