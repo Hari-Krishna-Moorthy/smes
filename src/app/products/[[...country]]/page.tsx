@@ -15,8 +15,8 @@ import { getProductViaCode } from '../../services/products'
 
 const ProductsPromo = () => {
   return (
-    <div className="bg-[#F2F5FD] dark:bg-secondary-dark dark:text-primary-light w-full px-12 pt-8 rounded-3xl flex justify-center align-middle">
-      <div className="w-2/3 flex-1">
+    <div className="bg-[#F2F5FD] dark:bg-secondary-dark dark:text-primary-light w-full px-6 md:px-12 pt-8 rounded-3xl flex flex-col md:flex-row justify-center items-center">
+      <div className="md:w-3/5 md:pr-4">
         <h1 className="font-bold pb-4 text-xl">Products</h1>
         <p>
           Our Marine Spare & equipment department supply Genuine and OEM spares
@@ -31,10 +31,12 @@ const ProductsPromo = () => {
           supply genuine spares with Maximum discount.
         </p>
       </div>
-      <div className="w-1/2 mb-8">
+
+      <div className="md:w-2/5 w-full h-full mb-4 md:mb-0">
         <ImageSlider />
       </div>
     </div>
+
   )
 }
 
@@ -56,7 +58,7 @@ const Categories: React.FC<{
         className="w-full h-full object-cover opacity-70 dark:opacity-40"
       />
 
-      <div className="absolute flex justify-center text-center items-center gap-2 text-xl font-medium text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 dark:text-black">
+      <div className="absolute flex justify-center items-center gap-2 text-xl font-medium text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 dark:text-black">
         <div className="w-10 h-10 rounded-full overflow-hidden align-middle justify-center items-center">
           <img
             className="w-full object-cover h-full"
@@ -64,8 +66,11 @@ const Categories: React.FC<{
             alt={flag.alt}
           />
         </div>
-        <h1 className="whitespace-nowrap">{name}</h1>
+        <p className="whitespace-nowrap text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl">
+          {name}
+        </p>
       </div>
+
     </div>
   )
 }
@@ -108,46 +113,45 @@ const ProductCategories = ({ countryMeta, handleCodeChange }) => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div
-        className={`${
-          countryMeta?.code
-            ? 'flex  gap-3 h-[9.75rem]'
-            : 'w-2/4 grid grid-cols-2 justify-center align-middle gap-3'
-        } mx-auto`}
+        className={`${countryMeta?.code
+          ? 'flex  gap-3 h-[9.75rem]'
+          : 'w-2/4 grid grid-cols-2 justify-center align-middle gap-3'
+          } mx-auto`}
       >
         {!categories
           ? Array(4)
-              .fill(0)
-              .map((_, index) => (
-                <div
-                  key={index}
-                  className="border shadow rounded-md px-4 py-4 h-40 w-full mx-auto"
-                >
-                  <div className="animate-pulse flex space-x-4 ">
-                    <div className="rounded-full bg-slate-700 h-10 w-10"></div>
-                    <div className="flex-1 space-y-6 py-1">
+            .fill(0)
+            .map((_, index) => (
+              <div
+                key={index}
+                className="border shadow rounded-md px-4 py-4 h-40 w-full "
+              >
+                <div className="animate-pulse flex space-x-4 ">
+                  <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                  <div className="flex-1 space-y-6 py-1">
+                    <div className="h-2 bg-slate-700 rounded"></div>
+                    <div className="space-y-3">
+                      <div className="grid grid-cols-3 gap-4">
+                        <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                        <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                      </div>
                       <div className="h-2 bg-slate-700 rounded"></div>
-                      <div className="space-y-3">
-                        <div className="grid grid-cols-3 gap-4">
-                          <div className="h-2 bg-slate-700 rounded col-span-2"></div>
-                          <div className="h-2 bg-slate-700 rounded col-span-1"></div>
-                        </div>
-                        <div className="h-2 bg-slate-700 rounded"></div>
-                        <div className="grid grid-cols-3 gap-4">
-                          <div className="h-2 bg-slate-700 rounded col-span-2"></div>
-                          <div className="h-2 bg-slate-700 rounded col-span-1"></div>
-                        </div>
+                      <div className="grid grid-cols-3 gap-4">
+                        <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                        <div className="h-2 bg-slate-700 rounded col-span-1"></div>
                       </div>
                     </div>
                   </div>
                 </div>
-              ))
+              </div>
+            ))
           : categories.map((info, index) => (
-              <Categories
-                key={index}
-                category={info}
-                onClick={handleCodeChange}
-              />
-            ))}
+            <Categories
+              key={index}
+              category={info}
+              onClick={handleCodeChange}
+            />
+          ))}
       </div>
       <div className="w-full ">
         {selectedCategory && products && (

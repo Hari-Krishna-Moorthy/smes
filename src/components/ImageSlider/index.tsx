@@ -1,26 +1,34 @@
 'use client'
 import React, { useState } from 'react'
-import { ChevronRightIcon, ChevronLeftIcon } from '@heroicons/react/24/solid'
-import PreviewOne from '../../assets/products/preview-1.png'
-import Image from 'next/image'
+import { ChevronRightIcon, ChevronLeftIcon } from '@heroicons/react/24/solid';
+import Image from 'next/image';
+
+import Preview1 from '../../assets/products/preview-1.jpg';
+import Preview2 from '../../assets/products/preview-2.jpg';
+import Preview3 from '../../assets/products/preview-3.jpg';
+import Preview4 from '../../assets/products/preview-4.jpg';
+import Preview5 from '../../assets/products/preview-5.jpg';
+import Preview6 from '../../assets/products/preview-6.jpg';
 
 function App() {
   const slides = [
     {
-      src: PreviewOne,
+      src: Preview1,
     },
     {
-      url: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
+      src: Preview2,
     },
     {
-      url: 'https://images.unsplash.com/photo-1661961112951-f2bfd1f253ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80',
-    },
-
-    {
-      url: 'https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2253&q=80',
+      src: Preview3,
     },
     {
-      url: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80',
+      src: Preview4,
+    },
+    {
+      src: Preview5,
+    },
+    {
+      src: Preview6,
     },
   ]
 
@@ -43,19 +51,14 @@ function App() {
   }
 
   const renderImage = () =>
-    slides[currentIndex].url ? (
-      <div
-        style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-        className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
-      ></div>
-    ) : (
-      <Image
-        src={slides[currentIndex].src!}
-        width={1000}
-        height={1000}
-        alt=""
-      />
-    )
+  (
+    <Image
+      src={slides[currentIndex].src!}
+      width={1000}
+      height={1000}
+      alt=""
+    />
+  )
 
   return (
     <div className="max-w-[1400px] h-[300px] w-full m-auto py-4 px-4 relative group">
@@ -78,15 +81,13 @@ function App() {
               height="1em"
               viewBox="0 0 512 512"
               width={'0.7rem'}
-              className={`dark:${
-                slideIndex === currentIndex
-                  ? 'fill-blue-800'
-                  : 'fill-primary-light'
-              } ${
-                slideIndex === currentIndex
+              className={`dark:${slideIndex === currentIndex
+                ? 'fill-blue-800'
+                : 'fill-primary-light'
+                } ${slideIndex === currentIndex
                   ? 'fill-blue-800'
                   : 'fill-neutral-800'
-              }`}
+                }`}
             >
               <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" />
             </svg>
