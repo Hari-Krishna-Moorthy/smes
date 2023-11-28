@@ -35,7 +35,7 @@ const Contact = () => {
             address: {
                 address: {
                     "office_name": "Singapore Office",
-                    "lines": ["Unit no.#07-05,", "Eco-tech@SunviewNo.1,", "Sunview Road,", "Singapore - 627615",]
+                    "lines": ["No. 10,", "Penjuru Road,",  "Singapore - 609124.",]
                 },
                 phone: [
                     "+65 62808404",
@@ -96,10 +96,10 @@ const Contact = () => {
         {
             lat: 25.2048493,
             lon: 55.2707828,
-            name: "Uniten Arab Emirates",
+            name: "United Arab Emirates",
             address: {
                 address: {
-                    "office_name": "Uniten Arab Emirates Office",
+                    "office_name": "United Arab Emirates Office",
                     "lines": ["New Arbash Building,", "Al Qasmiya Sharjah,", "Uniten Arab Emirates",]
                 },
                 phone: [
@@ -131,7 +131,7 @@ const Contact = () => {
                     "-"
                 ],
                 mails: [
-                    "uae@smesworldwide.com",
+                    "japan@smesworldwide.com",
                 ],
                 gmap: "http://www.google.com/maps/dir//35.8557741,140.4071997"
             }
