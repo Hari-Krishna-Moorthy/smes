@@ -234,6 +234,19 @@ const Contact = () => {
                         )}
                     </div>
 
+                    {/* Office Phone */}
+                    <div className="my-8 mx-4 px-4 grid grid-row-4 " >
+                        <div >
+                            <p className="text-xl font-semibold"> Fax: </p>
+                        </div>
+                        {SidebarContent?.address?.fax.map((fax, index) =>
+                            <div key={index}>
+                                <p className="text-md">{fax}</p>
+                            </div>
+                        )}
+                    </div>
+
+
 
                     {/* Office Mail */}
                     <div className="my-8 mx-4 px-4  grid grid-row-4 " >
