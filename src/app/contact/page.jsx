@@ -134,7 +134,7 @@ const Contact = () => {
                 fax: ["-"],
                 mails: ["japan@smesworldwide.com"],
                 gmap: "http://www.google.com/maps/dir//35.8557741,140.4071997",
-                icon: "/japan.svg",
+                icon: "/japan2.svg",
             },
         },
         {
