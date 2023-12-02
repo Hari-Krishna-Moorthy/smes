@@ -15,19 +15,19 @@ const Page = () => {
             <div className="text-black dark:text-white  sm:ml-4 md:ml-2 lg:ml-8 pb-16">
                 <ol type="1" class="mx-8">
                     {termsContent.map((content, index) => (
-                        <li key={index} className="container mx-auto py-2">
+                        <li key={index} className="container text-[12px] mx-auto py-2">
                             <span >{`${index + 1}`}</span>
-                                <span className="text-base pl-2">{content.content}</span>
-                                {
-                                    content.sublist ? <ol className="pl-2" >
-                                        {content.sublist.map((subContent, subIndex) => (
-                                            <li key={subIndex} className="pt-2">
-                                                <span >{`${index + 1}. ${String.fromCharCode(subIndex + 97)} `}</span>
-                                                <span className="text-base pl-2">{subContent}</span>
-                                            </li>
-                                        ))}
-                                    </ol > : <></>
-                                }
+                            <span className="pl-2">{content.content}</span>
+                            {
+                                content.sublist ? <ol className="pl-2" >
+                                    {content.sublist.map((subContent, subIndex) => (
+                                        <li key={subIndex} className=" pt-2">
+                                            <span >{`${index + 1}. ${String.fromCharCode(subIndex + 97)} `}</span>
+                                            <span className="pl-2">{subContent}</span>
+                                        </li>
+                                    ))}
+                                </ol > : <></>
+                            }
                         </li>
                     ))}
                 </ol>

@@ -20,7 +20,7 @@ const ImageCarousel2 = ({ images, captions }) => {
                 navigation={true}
                 parallax={true}
                 autoplay={{
-                    delay: 2500,
+                    delay: 6000,
                     disableOnInteraction: false,
                 }}
                 loop={true}

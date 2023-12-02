@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 
 import repairImg from "../../../assets/services/repair.jpg";
-import refrigirationImg from "../../../assets/services/refrigiration.png";
+import refrigirationImg from "../../../assets/services/refrigiration1.jpg";
 import CrewImg from '../../../assets/services/crew.jpg'
 import itSuppotImg from '../../../assets/services/it_support.jpg'
 import productImg from '../../../assets/services/products.jpg'
@@ -27,9 +27,9 @@ export default function Services({ params }) {
   const tabs = [
     { id: 1, showImage: repairImg.src, logo: repairImg.src, label: "Ship Repair and Services" },
     { id: 2, showImage: refrigirationImg.src, logo: refrigirationImg.src, label: "Refrigeration and Heating" },
-    { id: 3, showImage: CrewImg.src, logo: CrewImg.src, label: "Ship Store and Equipment" },
-    { id: 4, showImage: itSuppotImg.src, logo: itSuppotImg.src, label: "Crew Supply" },
-    { id: 5, showImage: productImg.src, logo: productImg.src, label: "IT Support" },
+    { id: 3, showImage: productImg.src, logo: productImg.src, label: "Ship Store and Equipment" },
+    { id: 4, showImage: CrewImg.src, logo: CrewImg.src, label: "Crew Supply" },
+    { id: 5, showImage: itSuppotImg.src, logo: itSuppotImg.src, label: "IT Support" },
   ];
   console.log(serviceId);
   const [selectedId, setSelectedId] = useState(
