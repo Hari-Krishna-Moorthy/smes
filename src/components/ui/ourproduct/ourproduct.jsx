@@ -17,25 +17,25 @@ const Ourproduct = () => {
     {
       name: "Japanese Spare Parts",
       link: "/products/JP",
-      image: '/categories/Rectangle 24874.png',
+      image: '/categories/Rectangle%2024874.png',
       countrySvg: 'japan.svg'
     },
     {
       name: "European Spare Parts",
       link: "/products/DE",
-      image: '/categories/Rectangle 24876.png',
+      image: '/categories/Rectangle%2024876.png',
       countrySvg: 'europe.svg'
     },
     {
       name: "Korean Spare Parts",
       link: "/products/KR",
-      image: '/categories/Rectangle 24875.png',
+      image: '/categories/Rectangle%2024875.png',
       countrySvg: 'korea.svg'
     },
     {
       name: "Chinese Spare Parts",
       link: "/products/CN",
-      image: '/categories/Rectangle 24877.png',
+      image: '/categories/Rectangle%2024877.png',
       countrySvg: 'china.svg'
     },
   ]
