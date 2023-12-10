@@ -6,6 +6,9 @@ import Footer from "../../components/ui/footer/footer";
 
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+
 
 const MapContainer = dynamic(
     () => import("react-leaflet").then((module) => module.MapContainer),
@@ -36,6 +39,7 @@ const Tooltip = dynamic(
 );
 
 const Contact = () => {
+    const [displayText, setDisplayText] = useState("sales@smesgroup.com.sg");
     let CENTRAL_LOCATION = [32.4652518, 28.8260857];
     const locations = [
         {
@@ -54,7 +58,40 @@ const Contact = () => {
                     </p>,
                 ],
                 fax: ["+65 62808834"],
-                mails: ["sales@smesgroup.com.sg", "singaporemarine@gmail.com"],
+                mails: [
+
+                    <a
+                        onMouseEnter={() => setDisplayText('Copy to click')}
+                        onMouseLeave={() => setDisplayText("sales@smesgroup.com.sg")}
+                        style={{ cursor: 'pointer' }}
+                        key={1}
+                        onClick={() => {
+                            navigator.clipboard.writeText("sales@smesgroup.com.sg").then(() => {
+                                setTimeout(() => {
+                                    console.log("done", displayText)
+                                }, 2000);
+                                console.log("Success", displayText)
+                                toast("Email copied!", {
+                                    position: "bottom-left",
+                                    autoClose: 3000,
+                                    hideProgressBar: true,
+                                    closeOnClick: true,
+                                    pauseOnHover: true,
+                                    draggable: false,
+                                    progress: undefined,
+                                    className: 'custom-toast-class' // for custom styling with Tailwind
+                                });
+
+                            }, () => {
+                                console.log("Failed")
+                            })
+                        }
+
+                        } src='mailto:sales@smesgroup.com.sg'>
+                        {displayText}
+                    </a>,
+                    <p key={2}> singaporemarine@gmail.com </p>
+                ],
                 gmap: "http://www.google.com/maps/dir//1.316, 103.698",
                 icon: "/singapore.svg",
             },
@@ -168,6 +205,8 @@ const Contact = () => {
 
     return (
         <div>
+            <ToastContainer />
+
             <div className="h-20">
                 <Navbar activePage={"Contact Us"} />
             </div>
@@ -291,7 +330,7 @@ const Contact = () => {
                         </div>
                         {SidebarContent?.address?.mails.map((mail_id, index) => (
                             <div key={index}>
-                                <p className="text-md">{mail_id}</p>
+                                <span className="text-md">{mail_id}</span>
                             </div>
                         ))}
                     </div>

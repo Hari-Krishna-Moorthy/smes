@@ -43,8 +43,3 @@ export const certificateList = [
     alt: "",
   },
 ];
-
-export const metadata = {
-  title: "Certificate",
-  description: "Page description",
-};

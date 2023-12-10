@@ -9,3 +9,8 @@
   .grayscale-map {
     filter: grayscale(100%);
   }
+
+  .custom-toast-class {
+    @apply bg-green-500 text-white p-4 rounded-md;
+  }
+  
